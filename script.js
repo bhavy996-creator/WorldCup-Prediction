@@ -70,3 +70,32 @@ function renderFixtures(){
 }
 
 renderFixtures();
+
+function resultOf(score){
+    if(score.home>score.away){
+        return "home";
+    }
+    if(score.home<score.away){
+        return "away";
+
+    }
+    return "draw";
+}
+
+function scorePick(predicted, actual){
+    const myResult = resultOf(predicted);
+    const trueResult = resultOf(actual);
+
+    if(
+        predicted.home === actual.home &&
+        predicted.away === actual.away
+    ){
+        return 5;
+    }
+    if(
+        myResult === trueResult
+    ){
+        return 2;
+    }
+    return 0;
+}
