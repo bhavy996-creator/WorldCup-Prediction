@@ -1,3 +1,4 @@
+console.log("Javascript loading");
 const FIXTURES = [
     {
         home: "Germany",
@@ -39,6 +40,7 @@ const FIXTURES = [
 ];
 
 function renderFixtures(){
+    
     const board = document.getElementById("board");
 
     FIXTURES.forEach((match, index) => {
