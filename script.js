@@ -1,4 +1,4 @@
-console.log("Javascript loading");
+
 const FIXTURES = [
     {
         home: "Germany",
@@ -39,6 +39,50 @@ const FIXTURES = [
     }
 ];
 
+const strength = {
+    Germany: {
+        attack: 2.6,
+        defense: 0.6
+    },
+
+    England: {
+        attack: 0.7,
+        defense: 1.9
+    },
+
+    France: {
+        attack: 1.4,
+        defense: 1.3
+    },
+
+    Spain: {
+        attack: 1.3,
+        defense: 1.4
+    },
+
+    Argentina: {
+        attack: 1.7,
+        defense: 1.0
+    },
+
+    Brazil: {
+        attack: 1.6,
+        defense: 1.1
+    }
+};
+const LEAGUE_AVG = 1.4;
+
+function botPredict(home, away) {
+
+    const h = strength[home];
+    const a = strength[away];
+
+    const lambdaHome = h.attack * (a.defense / LEAGUE_AVG);
+    const lambdaAway = a.attack * (h.defense / LEAGUE_AVG);
+
+    return Math.round(lambdaHome) + "-" + Math.round(lambdaAway);
+}
+
 function renderFixtures(){
     
     const board = document.getElementById("board");
@@ -71,6 +115,14 @@ function renderFixtures(){
 
 renderFixtures();
 
+const prediction = document.createElement("p");
+
+prediction.textContent =
+    "Bot Prediction: " +
+    botPredict(match.home, match.away);
+
+card.appendChild(prediction);
+
 function resultOf(score){
     if(score.home>score.away){
         return "home";
@@ -99,3 +151,16 @@ function scorePick(predicted, actual){
     }
     return 0;
 }
+
+
+//for testing 
+const predicted = {
+    home: 2,
+    away: 1
+};
+const actual = {
+    home: 2, 
+    away: 1
+};
+
+console.log(scorePick(predicted, actual));
