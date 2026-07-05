@@ -68,7 +68,37 @@ const strength = {
     Brazil: {
         attack: 1.6,
         defense: 1.1
-    }
+    },
+    
+    Mexico: {
+    attack: 1.2,
+    defense: 1.3
+},
+
+Switzerland: {
+    attack: 1.1,
+    defense: 1.0
+},
+
+Portugal: {
+    attack: 1.8,
+    defense: 0.9
+},
+
+Uruguay: {
+    attack: 1.4,
+    defense: 1.2
+},
+
+Japan: {
+    attack: 1.3,
+    defense: 1.1
+},
+
+Netherlands: {
+    attack: 1.7,
+    defense: 1.0
+}
 };
 const LEAGUE_AVG = 1.4;
 
@@ -109,19 +139,19 @@ function renderFixtures(){
 
             </div>
         `;
+        const prediction = document.createElement("p");
+        prediction.textContent =
+            "🤖 Bot Prediction: " +
+            botPredict(match.home, match.away);
+
+        card.appendChild(prediction);
         board.appendChild(card);
     });
 }
 
 renderFixtures();
 
-const prediction = document.createElement("p");
 
-prediction.textContent =
-    "Bot Prediction: " +
-    botPredict(match.home, match.away);
-
-card.appendChild(prediction);
 
 function resultOf(score){
     if(score.home>score.away){
