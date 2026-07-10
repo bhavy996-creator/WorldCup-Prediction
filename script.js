@@ -82,14 +82,35 @@ function scoreRound(){
             //get actual score
             const actual = RESULTS[resultkey];
 
+            //calculating the points 
+            const yourPoints = scorePick(predicted, actual);
+            yourTotal += yourPoints;
+
+            //bot prediction
+            const botScore = botPredict(fixture.home, fixture.away);
+
+            const parts = botScore.split("-");
+
+            const botPrediction = {
+                home: Number(parts[0]),
+                away: Number(parts[1])
+            };
+
+            const botPoints = scorePick(botPrediction, actual);
+            botTotal += botPoints;
+
             //for testing
             console.log("Fixture:", fixture.home, "vs", fixture.away);
             console.log("Predicted:", predicted);
             console.log("Actual:", actual);
             console.log("------------------------");
 
+           console.log("Your Total:", yourTotal);
+        console.log("Bot Total:", botTotal);
 
-        });
+        }
+        
+    );
     }
 
 renderFixtures();
