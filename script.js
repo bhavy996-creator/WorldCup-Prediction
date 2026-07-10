@@ -60,7 +60,26 @@ Bot Prediction :
 }
 
 function scoreRound(){
-        alert("Score Round clicked!!");
+
+    let yourTotal = 0;
+    let botTotal = 0;
+
+        const cards = document.querySelectorAll(".match");
+        cards.forEach((card, index)=>{
+            const inputs = card.querySelectorAll("input");
+
+            //read the users prediction 
+            const predicted = {
+                home: Number(inputs[0].value),
+                away: Number(inputs[1].value)
+            };
+
+            //for testing
+            console.log("Match:", index + 1);
+            console.log(predicted);
+
+
+        });
     }
 
 renderFixtures();
