@@ -74,9 +74,19 @@ function scoreRound(){
                 away: Number(inputs[1].value)
             };
 
+            //current fixture
+            const fixture = FIXTURES[index];
+
+            const resultkey = fixture.home + "|" + fixture.away;
+
+            //get actual score
+            const actual = RESULTS[resultkey];
+
             //for testing
-            console.log("Match:", index + 1);
-            console.log(predicted);
+            console.log("Fixture:", fixture.home, "vs", fixture.away);
+            console.log("Predicted:", predicted);
+            console.log("Actual:", actual);
+            console.log("------------------------");
 
 
         });
