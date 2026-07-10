@@ -1,3 +1,4 @@
+const KEY = "proov_predict_v1";
 
 const FIXTURES = [
     {
@@ -69,7 +70,7 @@ const strength = {
         attack: 1.6,
         defense: 1.1
     },
-    
+
     Mexico: {
     attack: 1.2,
     defense: 1.3
@@ -182,6 +183,48 @@ function scorePick(predicted, actual){
     return 0;
 }
 
+function renderLeaderboard(rows) {
+
+    const board = document.getElementById("leaderboard");
+
+    if (!board) return;
+
+    board.innerHTML = "";
+
+    rows.forEach((player, index) => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${player.name}</td>
+            <td>${player.total}</td>
+        `;
+
+        board.appendChild(row);
+
+    });
+
+}
+
+function saveAndRank(entries) {
+
+    // Save leaderboard
+    localStorage.setItem(KEY, JSON.stringify(entries));
+
+    // Read leaderboard
+    const raw = localStorage.getItem(KEY);
+
+    const rows = JSON.parse(raw || "[]");
+
+    // Sort highest score first
+    rows.sort((a, b) => b.total - a.total);
+
+    // Display leaderboard
+    renderLeaderboard(rows);
+
+}
+
 
 //for testing 
 const predicted = {
@@ -194,3 +237,30 @@ const actual = {
 };
 
 console.log(scorePick(predicted, actual));
+
+const leaderboardData = [
+
+    {
+        name: "You",
+        total: 17
+    },
+
+    {
+        name: "House Bot",
+        total: 11
+    },
+
+    {
+        name: "Alex",
+        total: 22
+    }
+
+];
+
+document
+    .getElementById("showLeaderboard")
+    .addEventListener("click", function () {
+
+        saveAndRank(leaderboardData);
+
+    });
