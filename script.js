@@ -20,7 +20,14 @@ function renderFixtures(){
     
     const board = document.getElementById("board");
 
+    board.innerHTML = "";   //clear the board before entering the data, this helps in preventing duplicate data
+
     FIXTURES.forEach((match, index) => {
+
+        //we get the bot prediction first
+        const prediction = botPredict(match.home, match.away);
+
+        //then we will create the match card
         const card = document.createElement("div");
         card.className = "match";
         card.setAttribute("data-match", index);
@@ -41,13 +48,13 @@ function renderFixtures(){
                 <input type="number" placeholder="0">
 
             </div>
+            <p class="prediction">
+Bot Prediction :
+<strong>${prediction}</strong>
+</p>
         `;
-        const prediction = document.createElement("p");
-        prediction.textContent =
-            "🤖 Bot Prediction: " +
-            botPredict(match.home, match.away);
 
-        card.appendChild(prediction);
+        //adding the card to board
         board.appendChild(card);
     });
 }
