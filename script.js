@@ -59,8 +59,16 @@ Bot Prediction :
     });
 }
 
+function scoreRound(){
+        alert("Score Round clicked!!");
+    }
+
 renderFixtures();
 
+//connecting the button to the function
+document
+        .getElementById("scoreRoundbtn")
+        .addEventListener("click", scoreRound);
 
 
 function resultOf(score){
@@ -173,3 +181,5 @@ document
         saveAndRank(leaderboardData);
 
     });
+
+    
