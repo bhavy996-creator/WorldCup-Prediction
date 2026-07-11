@@ -104,6 +104,7 @@ function collectPredictions(){
 function scoreRound(){
 
     const predictions = collectPredictions();
+    savePredictions(predictions);
 
     let yourTotal = 0;
     let botTotal = 0;
@@ -159,7 +160,10 @@ function scoreRound(){
 
 });
 
-
+//loading the predictions
+function savePredictions(predictions){
+    localStorage.setItem("predictions", JSON.stringify(predictions));
+}
 //update scoreboard once
 updateScoreBoard(yourTotal, botTotal);
 
