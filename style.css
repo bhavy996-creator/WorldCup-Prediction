@@ -75,3 +75,26 @@ p {
     color: #3F4B5F;
     margin: 0;
 }
+
+.scoreboard{
+
+    margin-top: 30px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+
+}
+
+.scoreboard h2{
+    margin-bottom: 15px;
+}
+
+.scoreboard p{
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.scoreboard strong{
+    color:#00C65A;
+}
