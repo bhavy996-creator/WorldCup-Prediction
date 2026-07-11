@@ -105,8 +105,9 @@ function scoreRound(){
             console.log("Actual:", actual);
             console.log("------------------------");
 
-           console.log("Your Total:", yourTotal);
-        console.log("Bot Total:", botTotal);
+           document.getElementById("yourScore").textContent = yourTotal;
+
+document.getElementById("botScore").textContent = botTotal;
 
         }
         
