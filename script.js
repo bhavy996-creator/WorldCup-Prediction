@@ -1,9 +1,19 @@
 const KEY = "bhavy_predict_v1";
 
-
-
-
 const LEAGUE_AVG = 1.4;
+
+let playerName = localStorage.getItem("playerName");
+
+if(!playerName){
+    playerName = prompt("Enter your name: ");
+    
+    if(playerName){
+        localStorage.setItem("playerName", playerName);
+    }
+    else{
+        playerName = "Guest";
+    }
+}
 
 function botPredict(home, away) {
 
@@ -121,7 +131,7 @@ updateScoreBoard(yourTotal, botTotal);
 
 const leaderboardData = [
     {
-        name: "You",
+        name: playerName,
         total: yourTotal,
         type: "user"
 
