@@ -110,11 +110,12 @@ function scoreRound(){
 
         
 
-         predictions.forEach((prediction, index) => {
+         predictions.forEach((prediction) => {
 
             const resultKey = prediction.home + "|" + prediction.away;
             const actual = RESULTS[resultKey];
 
+            //calculate users points
             const yourPoints = scorePick(
                 {
                     home: prediction.homeScore,
@@ -123,26 +124,41 @@ function scoreRound(){
                 actual
             );
 
+            //adding to total
+            yourTotal += yourPoints;
+
+            //get bot prediction
             const botScore = botPredict(
                 prediction.home,
                 prediction.away
             );
+
+            const parts = botScore.split("-");
+            
+            //convert into object
+            const botPrediction = {
+                home: Number(parts[0]),
+                away: Number(parts[1])
+            }
+ 
+            //calculate bot points
+            const botPoints = scorePick(botPrediction, actual);
+
+            //adding to total for bot
+            botTotal += botPoints;
+
 
             
             //for testing
             console.log("Fixture:", prediction.home, "vs", prediction.away);
             console.log("Predicted:", prediction);
             console.log("Actual:", actual);
+            console.log("Your Points:", yourPoints);
+            console.log("Bot Points:", botPoints);
             console.log("------------------------");
 
 });
 
-            
-
-            
-
-
-           
 
 //update scoreboard once
 updateScoreBoard(yourTotal, botTotal);
