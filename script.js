@@ -104,53 +104,46 @@ function collectPredictions(){
 function scoreRound(){
 
     const predictions = collectPredictions();
-    
+
     let yourTotal = 0;
     let botTotal = 0;
 
-        const cards = document.querySelectorAll(".match");
-        cards.forEach((card, index)=>{
-            const inputs = card.querySelectorAll("input");
+        
 
-            //read the users prediction 
-            const predicted = {
-                home: Number(inputs[0].value),
-                away: Number(inputs[1].value)
-            };
+         predictions.forEach((prediction, index) => {
 
-            //current fixture
-            const fixture = FIXTURES[index];
+            const resultKey = prediction.home + "|" + prediction.away;
+            const actual = RESULTS[resultKey];
 
-            const resultkey = fixture.home + "|" + fixture.away;
+            const yourPoints = scorePick(
+                {
+                    home: prediction.homeScore,
+                    away: prediction.awayScore
+                },
+                actual
+            );
 
-            //get actual score
-            const actual = RESULTS[resultkey];
+            const botScore = botPredict(
+                prediction.home,
+                prediction.away
+            );
 
-            //calculating the points 
-            const yourPoints = scorePick(predicted, actual);
-            yourTotal += yourPoints;
-
-            //bot prediction
-            const botScore = botPredict(fixture.home, fixture.away);
-
-            const parts = botScore.split("-");
-
-            const botPrediction = {
-                home: Number(parts[0]),
-                away: Number(parts[1])
-            };
-
-            const botPoints = scorePick(botPrediction, actual);
-            botTotal += botPoints;
-
+            
             //for testing
-            console.log("Fixture:", fixture.home, "vs", fixture.away);
-            console.log("Predicted:", predicted);
+            console.log("Fixture:", prediction.home, "vs", prediction.away);
+            console.log("Predicted:", prediction);
             console.log("Actual:", actual);
             console.log("------------------------");
 
-           
 });
+
+            
+
+            
+
+
+           
+
 //update scoreboard once
 updateScoreBoard(yourTotal, botTotal);
 
