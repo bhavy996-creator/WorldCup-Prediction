@@ -122,12 +122,14 @@ updateScoreBoard(yourTotal, botTotal);
 const leaderboardData = [
     {
         name: "You",
-        total: yourTotal
+        total: yourTotal,
+        type: "user"
 
 },
 {
     name: "House Bot",
-    total: botTotal
+    total: botTotal,
+    type: "bot"
 }
 ];
 
@@ -203,10 +205,21 @@ function renderLeaderboard(rows) {
         else{
             rank = index + 1;
         }
+        
+        let icon;
 
+if (player.type === "user") {
+    icon = "👤";
+}
+else if (player.type === "bot") {
+    icon = "🤖";
+}
+else {
+    icon = "🏆";
+}
         row.innerHTML = `
             <td>${rank}</td>
-            <td>${player.name}</td>
+            <td>${icon}${player.name}</td>
             <td>${player.total}</td>
         `;
 
