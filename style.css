@@ -78,21 +78,22 @@ p {
 
 .scoreboard{
 
-    margin-top: 30px;
-    padding: 20px;
-    background: #ffffff;
+    background: white;
+    border: 1px solid #E4E8EE;
     border-radius: 12px;
-    border: 1px solid #ddd;
+    padding: 14px;
 
 }
 
 .scoreboard h2{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .scoreboard p{
     font-size: 18px;
-    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
 }
 
 .scoreboard strong{
