@@ -109,6 +109,22 @@ function scoreRound(){
 
 document.getElementById("botScore").textContent = botTotal;
 
+//creating leaderboard info
+
+const leaderboardData = [
+    {
+        name: "You",
+        total: yourTotal
+
+},
+{
+    name: "House Bot",
+    total: botTotal
+}
+];
+
+saveAndRank(leaderboardData);
+
         }
         
     );
@@ -206,31 +222,6 @@ const actual = {
 
 console.log(scorePick(predicted, actual));
 
-const leaderboardData = [
 
-    {
-        name: "You",
-        total: 17
-    },
-
-    {
-        name: "House Bot",
-        total: 11
-    },
-
-    {
-        name: "Alex",
-        total: 22
-    }
-
-];
-
-document
-    .getElementById("showLeaderboard")
-    .addEventListener("click", function () {
-
-        saveAndRank(leaderboardData);
-
-    });
 
     
