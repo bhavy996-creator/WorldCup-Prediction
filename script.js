@@ -186,8 +186,26 @@ function renderLeaderboard(rows) {
 
         const row = document.createElement("tr");
 
+        let rank;
+
+        if(index === 0){
+            rank = "🥇";
+        }
+
+        else if(index === 1){
+            rank = "🥈";
+        }
+
+        else if(index === 2){
+            rank = "🥉";
+        }
+
+        else{
+            rank = index + 1;
+        }
+
         row.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${rank}</td>
             <td>${player.name}</td>
             <td>${player.total}</td>
         `;
