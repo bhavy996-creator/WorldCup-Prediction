@@ -58,7 +58,14 @@ Bot Prediction :
         board.appendChild(card);
     });
 }
+function updateScoreBoard(yourTotal, botTotal){
 
+    
+
+    document.getElementById("yourScore").textContent = yourTotal;
+    document.getElementById("botScore").textContent = botTotal;
+
+}
 function scoreRound(){
 
     let yourTotal = 0;
@@ -105,9 +112,10 @@ function scoreRound(){
             console.log("Actual:", actual);
             console.log("------------------------");
 
-           document.getElementById("yourScore").textContent = yourTotal;
-
-document.getElementById("botScore").textContent = botTotal;
+           
+});
+//update scoreboard once
+updateScoreBoard(yourTotal, botTotal);
 
 //creating leaderboard info
 
@@ -127,9 +135,8 @@ saveAndRank(leaderboardData);
 
         }
         
-    );
-    }
-
+       
+   
 renderFixtures();
 
 //connecting the button to the function
