@@ -2,6 +2,7 @@ const KEY = "bhavy_predict_v1";
 
 const LEAGUE_AVG = 1.4;
 
+//adding the localstorage method for saving users info
 let playerName = localStorage.getItem("playerName");
 
 if(!playerName){
@@ -76,8 +77,34 @@ function updateScoreBoard(yourTotal, botTotal){
     document.getElementById("botScore").textContent = botTotal;
 
 }
+
+function collectPredictions(){
+    const predictions = [];
+
+    
+    const cards = document.querySelectorAll(".match");
+    cards.forEach((card, index)=>{
+        const inputs = card.querySelectorAll("input");
+        const fixture = FIXTURES[index];
+        
+        const prediction = {
+        home: fixture.home,
+        away: fixture.away,
+        homeScore: Number(inputs[0].value),
+        awayScore: Number(inputs[1].value)
+    };
+    predictions.push(prediction);
+    });
+    return predictions;
+
+    
+}
+
+
 function scoreRound(){
 
+    const predictions = collectPredictions();
+    
     let yourTotal = 0;
     let botTotal = 0;
 
