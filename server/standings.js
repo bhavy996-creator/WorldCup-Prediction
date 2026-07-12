@@ -71,3 +71,11 @@ function updateStandings(standings, result){
     awayTeam.goalDifference = awayTeam.goalsFor - homeTeam.goalsAgainst;
 
 }
+
+function calculateStandings(){
+    const standings = createStandings();
+    predictions.forEach((prediction)=>{
+        updateStandings(standings, prediction);
+    });
+    return standings;
+}
