@@ -124,8 +124,11 @@ const standings = calculateStandings(predictions);
 
         renderStandings(sortedTeams);
         const nextRound = generateNextRound(predictions);
+        renderRound(
+            nextRound,
+            "Quarter Finals"
+        );
 
-console.log(nextRound);
 
         }
 

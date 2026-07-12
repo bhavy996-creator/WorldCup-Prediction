@@ -25,3 +25,20 @@ function generateNextRound(predictions){
     }
 return nextRound;
 }
+
+function renderRound(fixtures, title){
+    const container = document.getElementById("nextRound");
+    container.innerHTML = "";
+
+    fixtures.forEach((match) =>{
+        const card = document.createElement("div");
+        card.className = "match";
+        card.innerHTML = `
+        <h3>${title}</h3>
+        <p>${match.home}
+        vs 
+        ${match.away}</p>
+        `;
+        container.appendChild(card);
+    });
+}
