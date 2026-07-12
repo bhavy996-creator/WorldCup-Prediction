@@ -125,3 +125,7 @@ const standings = calculateStandings(predictions);
         renderStandings(sortedTeams);
 
         }
+
+        const nextRound = generateNextRound(predictions);
+
+console.log(nextRound);
