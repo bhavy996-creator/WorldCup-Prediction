@@ -94,3 +94,32 @@ function sortStandings(standings){
     });
     return teams;
 }
+
+function renderStandings(teams) {
+
+    const body = document.getElementById("standingsBody");
+
+    body.innerHTML = "";
+
+    teams.forEach((team, index) => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${team.name}</td>
+            <td>${team.played}</td>
+            <td>${team.wins}</td>
+            <td>${team.draws}</td>
+            <td>${team.losses}</td>
+            <td>${team.goalsFor}</td>
+            <td>${team.goalsAgainst}</td>
+            <td>${team.goalDifference}</td>
+            <td>${team.points}</td>
+        `;
+
+        body.appendChild(row);
+
+    });
+
+}

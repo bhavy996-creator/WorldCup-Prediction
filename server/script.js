@@ -204,7 +204,14 @@ const leaderboardData = [
 
 saveAndRank(leaderboardData);
 
+const standings = calculateStandings(predictions);
+        const sortedTeams = sortStandings(standings);
+
+        renderStandings(sortedTeams);
+
         }
+
+        
         
        
    
