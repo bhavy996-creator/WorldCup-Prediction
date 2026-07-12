@@ -70,30 +70,19 @@ Bot Prediction :
     });
 }
 
+function bindEvents(){
 
-renderFixtures();
-
-restorePrediction();
-
-//connecting the button to the function
+    //connecting the button to the function
 document
         .getElementById("scoreRoundbtn")
         .addEventListener("click", scoreRound);
 
+}
 
+function initializeApp(){
+    renderFixtures();
+    restorePrediction();
+    bindEvents();
 
-//for testing 
-const predicted = {
-    home: 2,
-    away: 1
-};
-const actual = {
-    home: 2, 
-    away: 1
-};
-
-console.log(scorePick(predicted, actual));
-
-
-
-    
+}
+initializeApp();
