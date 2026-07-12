@@ -68,14 +68,29 @@ function updateStandings(standings, result){
     }
 
     homeTeam.goalDifference = homeTeam.goalsFor - homeTeam.goalsAgainst;
-    awayTeam.goalDifference = awayTeam.goalsFor - homeTeam.goalsAgainst;
+    awayTeam.goalDifference = awayTeam.goalsFor - awayTeam.goalsAgainst;
 
 }
 
-function calculateStandings(){
+function calculateStandings(predictions){
     const standings = createStandings();
     predictions.forEach((prediction)=>{
         updateStandings(standings, prediction);
     });
     return standings;
+}
+
+function sortStandings(standings){
+    const teams = Object.values(standings);
+
+    teams.sort((a, b)=>{
+        if(b.points !== a.points){
+            return b.points - a.points;
+        }
+        if(b.goalDifference !== a.goalDifference){
+            return b.goalDifference - a.goalDifference;
+        }
+        return b.goalsFor - a.goalsFor;
+    });
+    return teams;
 }
