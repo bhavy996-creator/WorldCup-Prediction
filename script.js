@@ -100,6 +100,25 @@ function collectPredictions(){
     
 }
 
+function loadPredictions(){
+    const raw = localStorage.getItem("predictions");
+    return JSON.parse(raw || "[]");
+}
+
+function restorePrediction(){
+    const predictions = loadPredictions();
+
+    const cards = document.querySelectorAll(".match");
+    cards.forEach((card, index)=>{
+
+        if(!predictions[index] ) return;
+        const inputs = card.querySelectorAll("input");
+
+        inputs[0].value = predictions[index].homeScore;
+        inputs[1].value = predictions[index].awayScore;
+
+    })
+}
 
 function scoreRound(){
 
@@ -190,6 +209,8 @@ saveAndRank(leaderboardData);
        
    
 renderFixtures();
+
+restorePrediction();
 
 //connecting the button to the function
 document
