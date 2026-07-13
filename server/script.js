@@ -53,7 +53,11 @@ function renderFixtures(){
 
     </div>
 
-    <div class="team-row">
+    <div class="team-row home-team">
+    <img src="assets/flags/${match.home.toLowerCase()}.svg"
+    class ="flag"
+    alt="${match.home}"
+    >
 
         <span class="team-name">
             ${match.home}
@@ -71,11 +75,16 @@ function renderFixtures(){
 
     </div>
 
-    <div class="team-row">
+    <div class="team-row away-team">
+    
 
         <span class="team-name">
             ${match.away}
         </span>
+        <img
+        src="assets/flags/${match.away.toLowerCase()}.svg"
+        class="flag"
+        alt="${match.away}">
 
     </div>
 
