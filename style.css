@@ -154,6 +154,9 @@ p {
 }
 
 .logo h1{
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin: 0;
     font-size: 32px;
 }
@@ -164,8 +167,28 @@ p {
 }
 
 .profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background: #f8fafc;
     padding: 10px 18px;
     border-radius: 12px;
     font-weight: 600;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.icon-sm{
+    width: 18px;
+    height: 18px;
+}
+
+.icon-md{
+    width: 24px;
+    height: 24px;
 }
