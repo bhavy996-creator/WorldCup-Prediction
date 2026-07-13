@@ -28,6 +28,15 @@ function botPredict(home, away) {
     return Math.round(lambdaHome) + "-" + Math.round(lambdaAway);
 }
 
+function formatDate(dateString){
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+    });
+}
+
 function renderFixtures(){
     
     const board = document.getElementById("board");
@@ -49,7 +58,12 @@ function renderFixtures(){
 
         <span class="round">${match.round}</span>
 
-        <span class="date">${match.date}</span>
+        <div class ="date">
+        <img src ="assets/icons/calendar.svg"
+        class = "icon-sm"
+        alt = "Calendar">
+
+        <span>${formatDate(match.date)}</span>
 
     </div>
 
@@ -102,7 +116,7 @@ function renderFixtures(){
     <div class="prediction-label">
     <img
     src="assets/icons/robot.svg"
-    class="icon icon-md"
+    class="icon icon-sm"
     alt="Robot">
 
         <span>AI Prediction</span>

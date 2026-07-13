@@ -305,8 +305,18 @@ p {
 }
 
 .date{
-    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--secondary);
     font-size: 14px;
+}
+
+.date .icon{
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
 }
 
 .fixture-row{
