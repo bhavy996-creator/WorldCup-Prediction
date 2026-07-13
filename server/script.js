@@ -66,6 +66,7 @@ function renderFixtures(){
         <span>${formatDate(match.date)}</span>
 
     </div>
+    </div>
 
     <div class="fixture-row">
 
