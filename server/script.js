@@ -4,6 +4,7 @@ const LEAGUE_AVG = 1.4;
 
 //adding the localstorage method for saving users info
 let playerName = localStorage.getItem("playerName");
+document.getElementById("playerDisplay").textContent = playerName;
 
 if(!playerName){
     playerName = prompt("Enter your name: ");
