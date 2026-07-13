@@ -44,27 +44,51 @@ function renderFixtures(){
         card.className = "match";
         card.setAttribute("data-match", index);
 
-        card.innerHTML =`
-        <div class ="meta">
-        ${match.round} • ${match.date}</div>
+        card.innerHTML = `
+    <div class="match-header">
 
-        <div class ="teams">
-        ${match.home} vs ${match.away}</div>
+        <span class="round">${match.round}</span>
 
-        <div class="picks">
+        <span class="date">${match.date}</span>
 
-                <input type="number" placeholder="0">
+    </div>
 
-                <span class="vs">VS</span>
+    <div class="team-row">
 
-                <input type="number" placeholder="0">
+        <span class="team-name">
+            ${match.home}
+        </span>
 
-            </div>
-            <p class="prediction">
-Bot Prediction :
-<strong>${prediction}</strong>
-</p>
-        `;
+    </div>
+
+    <div class="picks">
+
+        <input type="number" placeholder="0">
+
+        <span class="vs">⚽</span>
+
+        <input type="number" placeholder="0">
+
+    </div>
+
+    <div class="team-row">
+
+        <span class="team-name">
+            ${match.away}
+        </span>
+
+    </div>
+
+    <p class="prediction">
+
+        <strong>🤖 AI Prediction</strong>
+
+        <br>
+
+        ${prediction}
+
+    </p>
+`;
 
         //adding the card to board
         board.appendChild(card);

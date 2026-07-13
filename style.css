@@ -192,3 +192,25 @@ p {
     width: 24px;
     height: 24px;
 }
+
+.match-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.round{
+     background:#E8F5E9;
+    color:#00A651;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+
+}
+
+.date{
+    color: #64748b;
+    font-size: 14px;
+}
