@@ -23,28 +23,17 @@
         <div class="dashboard">
             <main class ="main-content">
                 <div id="board"></div>
-            </main>
-            <aside class="sidebar">
-                <!-- Round Results -->
-
-            <!-- Leaderboard -->
-
-            <!-- Standings -->
-
-            <!-- Next Round -->
-
-            </aside>
-        </div>
-    </div>
-
-    <div class="sub">
+                  <div class="sub">
         2026 World Cup · Round of 32
     </div>
 
-    <div id="board"></div>
+   
     <button id ="scoreRoundbtn">Score Round</button>
+            </main>
+            <aside class="sidebar">
 
-    <div id ="scoreboard" class ="scoreboard">
+                <!-- Scoreboard -->
+               <div id ="scoreboard" class ="scoreboard card">
         <h2>Round Results</h2>
         <p>Your score:
             <strong id ="yourScore">0</strong>
@@ -55,9 +44,11 @@
         </p>
     </div>
 
-    <hr>
-
+            <!-- Leaderboard -->
+             <div class="leaderboard card">
 <h2>Leaderboard</h2>
+
+
 
 <table>
 
@@ -78,7 +69,11 @@
     </tbody>
 
 </table>
+</div>
 
+
+            <!-- Standings -->
+             <div  class="standings card">
 <h2>Group Standings</h2>
 <table id ="standingsTable">
     <thead>
@@ -99,11 +94,31 @@
 
     </tbody>
 </table>
+</div>
 
-<section id="knockout">
+
+            <!-- Next Round -->
+
+            <section class= "card">
     <h2>Next Round</h2>
+    
     <div id="nextRound"></div>
+        
 </section>
+
+            </aside>
+        </div>
+    </div>
+
+  
+
+    
+
+    <hr>
+
+
+
+
 
 <br>
 
