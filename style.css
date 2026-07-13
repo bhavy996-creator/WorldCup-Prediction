@@ -99,3 +99,39 @@ p {
 .scoreboard strong{
     color:#00C65A;
 }
+
+.dashboard{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+    padding: 32px;
+
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    
+}
