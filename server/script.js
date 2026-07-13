@@ -98,15 +98,20 @@ function renderFixtures(){
 
     </div>
 
-    <p class="prediction">
+    <div class="prediction">
+    <div class="prediction-label">
+    <img
+    src="assets/icons/robot.svg"
+    class="icon icon-md"
+    alt="Robot">
 
-        <strong>🤖 AI Prediction</strong>
+        <span>AI Prediction</span>
+        </div>
 
-        <br>
 
-        ${prediction}
+        <strong>${prediction}</strong>
 
-    </p>
+    </div>
 `;
 
         //adding the card to board
