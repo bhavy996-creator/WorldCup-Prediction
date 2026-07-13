@@ -64,6 +64,19 @@ h1 {
     margin-bottom: 8px;
 }
 
+.team-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14px 0;
+}
+
+.team-name{
+    font-size: 20px;
+    font-weight: 600;
+    color:var(--primary);
+}
+
 .picks {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -85,15 +98,30 @@ h1 {
 
 .picks input:focus{
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(0,166,81,.15);
+    box-shadow: 0 0 0 2px rgba(0,166,81,.08);
 }
+
+
 
 .vs {
-    color: #6A7589;
+    color: var(--secondary);
     font-weight: bold;
-    font-size: 12px;
+    font-size: 20px;
 }
 
+.prediction{
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--secondary);
+    font-size: 15px;
+}
+.prediction strong{
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
 footer{
     color: #6A7589;
     font-size: 11px;
