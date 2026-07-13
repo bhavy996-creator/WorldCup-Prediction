@@ -53,7 +53,9 @@ function renderFixtures(){
 
     </div>
 
-    <div class="team-row home-team">
+    <div class="fixture-row">
+
+    <div class="team home-team">
     <img src="assets/flags/${match.home.toLowerCase()}.svg"
     class ="flag"
     alt="${match.home}"
@@ -65,17 +67,23 @@ function renderFixtures(){
 
     </div>
 
-    <div class="picks">
+    <div class="score-inputs">
 
         <input type="number" placeholder="0">
 
-        <span class="vs">⚽</span>
+        <img
+        src="assets/icons/football.svg"
+        class="icon icon-sm"
+        alt="Football"
+        >
+
+        
 
         <input type="number" placeholder="0">
 
     </div>
 
-    <div class="team-row away-team">
+    <div class="team away-team">
     
 
         <span class="team-name">
@@ -85,6 +93,8 @@ function renderFixtures(){
         src="assets/flags/${match.away.toLowerCase()}.svg"
         class="flag"
         alt="${match.away}">
+
+    </div>
 
     </div>
 
