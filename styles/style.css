@@ -1,16 +1,4 @@
-:root{
-
-    --bg:#F5F7FA;
-    --card:#FFFFFF;
-    --primary:#0F172A;
-    --secondary:#64748B;
-    --accent:#00A651;
-    --border:#E2E8F0;
-    --radius:16px;
-    --shadow:0 4px 12px rgba(0,0,0,.05);
-    --transition:0.25s ease;
-
-}
+@import url("variables.css");
 
 body{
     margin: 0;
