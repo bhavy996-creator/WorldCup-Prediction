@@ -32,7 +32,7 @@ function renderRound(fixtures, title){
 
     fixtures.forEach((match) =>{
         const card = document.createElement("div");
-        card.className = "match";
+        card.className = "next-match";
         card.innerHTML = `
         <h3>${title}</h3>
         <p>${match.home}
