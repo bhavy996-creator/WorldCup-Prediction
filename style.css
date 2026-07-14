@@ -413,3 +413,35 @@ p {
     background: var(--card);
     margin-top: 12px;
 }
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#scoreRoundbtn{
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#scoreRoundbtn:hover{
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+#scoreRoundbtn:active{
+    transform: translateY(0);
+}
