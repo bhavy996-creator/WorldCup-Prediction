@@ -8,7 +8,8 @@ function renderLeaderboard(rows) {
 
     rows.forEach((player, index) => {
 
-        const row = document.createElement("tr");
+        const row = document.createElement("div");
+        row.className = "leaderboard-row";
 
         let rank;
 
@@ -40,9 +41,11 @@ else {
     icon = "🏆";
 }
         row.innerHTML = `
-            <td>${rank}</td>
-            <td>${icon}${player.name}</td>
-            <td>${player.total}</td>
+            <div class ="leaderboard-left">
+            <span class ="rank">${rank}</span>
+            <span>${player.name}</span>
+            </div>
+            <div class ="leaderboard-score">${player.total}pts</div>
         `;
 
         board.appendChild(row);

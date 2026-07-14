@@ -348,14 +348,14 @@ p {
 
 .winner strong{
     color: var(--accent);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .score-value{
     display: flex;
     align-items: center;
     gap: 4px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .score-value span{
