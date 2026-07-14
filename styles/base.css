@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+    
+    background: #F7F8FA;
+    color: #0E1726;
+}
+
+h1 {
+    color: #00C65A;
+    font-size: 22px;
+    margin: 0 0 4px;
+}
+
+p {
+    color: #3F4B5F;
+    margin: 0;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.icon-sm{
+    width: 18px;
+    height: 18px;
+}
+
+.icon-md{
+    width: 24px;
+    height: 24px;
+}
+
+#scoreRoundbtn{
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#scoreRoundbtn:hover{
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+#scoreRoundbtn:active{
+    transform: translateY(0);
+}
