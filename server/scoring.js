@@ -100,12 +100,12 @@ function scoreRound(){
 
 //update scoreboard once
 updateScoreBoard(yourTotal, botTotal);
-let winner = "Draw";
+let winner = "🤝 Draw";
 if(yourTotal > botTotal){
-    winner = playerName;
+    winner = "🏆 " + playerName;
 }
 else if (botTotal > yourTotal){
-    winner = "House Bot";
+    winner = "🤖 House Bot";
 }
 
 document.getElementById("winner").textContent = winner;

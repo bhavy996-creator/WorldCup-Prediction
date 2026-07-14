@@ -37,15 +37,27 @@
 
                 <!-- Scoreboard -->
                <div id ="scoreboard" class ="scoreboard card">
-        <h2>Round Results</h2>
+        <h2>
+                <img src="assets/icons/chart.svg"
+         class="icon icon-sm"
+         alt="Results">
+         Round Results
+        </h2>
         <div class="result-row">
             <span>Your Score</span>
-            <strong id ="yourScore">0</strong>
+            <div class="score-value">
+                <strong id="yourScore">0</strong>
+                <span>pts</span>
+            </div>
         </div>
         
         <div class="result-row">
             <span>House Bot</span>
-            <strong id ="botScore">0</strong>
+            <div class="score-value">
+                <strong id ="botScore">0</strong>
+                <span>pts</span>
+            </div>
+            
         </div>
 
         <div class="result-row winner">

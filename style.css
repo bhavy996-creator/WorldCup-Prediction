@@ -338,8 +338,8 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    border-bottom: 1px solid #eef2f7;
 }
 
 .result-row:last-child{
@@ -349,4 +349,25 @@ p {
 .winner strong{
     color: var(--accent);
     font-weight: 700;
+}
+
+.score-value{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+
+.score-value span{
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+.card h2{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
 }
