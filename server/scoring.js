@@ -138,6 +138,9 @@ const standings = calculateStandings(predictions);
             "Quarter Finals"
         );
 
+const summary = calculateSummary(predictions);
+renderSummary(summary);        
+
 
         }
 

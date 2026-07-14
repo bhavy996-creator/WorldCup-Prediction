@@ -29,3 +29,43 @@ function calculateSummary(predictions){
     });
     return summary;
 }
+
+function renderSummary(summary){
+
+    const container = document.getElementById("summary");
+
+    const total =
+        summary.exact +
+        summary.correct +
+        summary.wrong;
+
+    const accuracy =
+        Math.round(
+            ((summary.exact + summary.correct) / total) * 100
+        );
+
+    container.innerHTML = `
+        <h2>Round Summary</h2>
+
+        <div class="result-row">
+            <span>Exact Scores</span>
+            <strong>${summary.exact}</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Correct Results</span>
+            <strong>${summary.correct}</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Wrong Picks</span>
+            <strong>${summary.wrong}</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Accuracy</span>
+            <strong>${accuracy}%</strong>
+        </div>
+    `;
+
+}
