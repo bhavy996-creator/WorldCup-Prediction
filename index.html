@@ -26,12 +26,14 @@
         <div class="dashboard">
             <main class ="main-content">
                 <div id="board"></div>
+                <div class="toolbar">
                   <div class="sub">
         2026 World Cup · Round of 32
     </div>
 
    
     <button id ="scoreRoundbtn">Score Round</button>
+    </div>
             </main>
             <aside class="sidebar">
 
@@ -66,8 +68,13 @@
         </div>
     </div>
 
+    <! -- Summary -- >
+    <div id="summary" class="card">
+        <h2>Round Summary</h2>
+    </div>
+
             <!-- Leaderboard -->
-             <div class="leaderboard card">
+             <div id="leaderboardCard" class="leaderboard card">
 <h2>Leaderboard</h2>
 
 
@@ -79,7 +86,7 @@
 
 
             <!-- Standings -->
-             <div  class="standings card">
+             <div id="standingsCard"  class="standings card">
 <h2>Group Standings</h2>
 <table id ="standingsTable">
     <thead>
@@ -105,7 +112,7 @@
 
             <!-- Next Round -->
 
-            <section class= "card">
+            <section id="nextRoundCard" class= "card">
     <h2>Next Round</h2>
     
     <div id="nextRound"></div>
@@ -115,13 +122,10 @@
             </aside>
         </div>
     </div>
-    <hr>
-<br>
+ 
 
 
-
-
-    <footer>
+    <footer class="footer">
         Independent learning project. Not affiliated with or endorsed by FIFA.
         Fixtures snapshot: openfootball/worldcup.json (CC0-1.0).
     </footer>
@@ -130,6 +134,7 @@
     <script src="server/predictions.js"></script>
     <script src="server/leaderboard.js"></script>
     <script src="server/bracket.js"></script>
+    <script src="server/summary.js"></script>
     <script src="server/scoring.js"></script>
     <script src ="server/script.js"></script>
 </body>
