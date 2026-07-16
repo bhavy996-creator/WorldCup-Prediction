@@ -10,6 +10,9 @@
 
 @import url("scoreboard.css");
 
+@import url("leaderboard.css");
+
+
 .footer{
     width: 100%;
     border-top: 1px solid var(--border);
@@ -106,26 +109,7 @@
     font-size: 20px;
 }
 
-.leaderboard-row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-}
 
-.leaderboard-left{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.leaderboard-score{
-    font-weight: 600;
-}
-.rank{
-    font-size: 20px;
-}
 
 .next-match{
     padding: 16px;
