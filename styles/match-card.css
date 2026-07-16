@@ -1,0 +1,128 @@
+.match {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.match:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.08);
+}
+
+.teams {
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.team-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.home-team{
+    justify-content: flex-start;
+}
+.away-team{
+    justify-content: flex-end;
+}
+
+.team-name{
+    font-size: 20px;
+    font-weight: 600;
+    color:var(--primary);
+}
+
+.flag{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--border);
+    flex-shrink:0;
+
+}
+
+
+
+.match-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.prediction{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    
+}
+
+.prediction-label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.prediction strong{
+    display: block;
+    
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+.score-inputs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.score-inputs input {
+    padding: 0;
+    width: 56px;
+    height: 52px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    outline: none;
+    transition: var(--transition);
+    background: white;
+}
+
+.score-inputs input:focus{
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(0,166,81,.08);
+    transform: scale(1.05);
+}
+
+.score-inputs .icon{
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.date .icon{
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
