@@ -1,0 +1,53 @@
+.scoreboard{
+    width: 610px ;
+    background: white;
+    border: 1px solid #E4E8EE;
+    border-radius: 12px;
+    padding: 14px;
+
+}
+
+.scoreboard h2{
+    margin-bottom: 20px;
+}
+
+.scoreboard p{
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0;
+}
+
+.scoreboard strong{
+    color:#00C65A;
+}
+
+.result-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #eef2f7;
+}
+
+.result-row:last-child{
+    border-bottom: none;
+}
+
+.winner strong{
+    color: var(--accent);
+    font-weight: 500;
+}
+
+
+.score-value{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+}
+
+.score-value span{
+    color: var(--secondary);
+    font-size: 13px;
+}
