@@ -100,15 +100,30 @@ function scoreRound(){
 
 //update scoreboard once
 updateScoreBoard(yourTotal, botTotal);
-let winner = "🤝 Draw";
+let winner = `
+<img src ="assets/icons/handshake.svg"
+class="icon icon-sm"
+alt="Draw">
+Draw
+`;
 if(yourTotal > botTotal){
-    winner = "🏆 " + playerName;
+    winner = `
+    <img src ="assets/icons/user.svg"
+    class ="icon icon-sm"
+    alt="User">
+    ${playerName}
+    ` ;
 }
 else if (botTotal > yourTotal){
-    winner = "🤖 House Bot";
+    winner = `
+    <img src ="assets/icons/robot.svg"
+    class ="icon icon-sm"
+    alt="Robot">
+    House Bot
+    `;
 }
 
-document.getElementById("winner").textContent = winner;
+document.getElementById("winner").innerHTML = winner;
 
 //creating leaderboard info
 
