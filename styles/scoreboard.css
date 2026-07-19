@@ -26,10 +26,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #eef2f7;
 }
 
+.result-row strong{
+
+    font-size:16px;
+    font-weight:700;
+    color:var(--primary);
+
+}
+
+.accuracy{
+
+    background:#E8F5E9;
+    color:#00A651;
+    padding:4px 10px;
+    border-radius:999px;
+    font-weight:600;
+
+}
 .result-row:last-child{
     border-bottom: none;
 }
