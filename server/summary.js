@@ -10,7 +10,7 @@ function calculateSummary(predictions){
 
         const predictedResult = resultOf({
             home: prediction.homeScore,
-            away: prediction.away
+            away: prediction.awayScore
         });
 
         const actualResult = resultOf(actual);
@@ -40,12 +40,19 @@ function renderSummary(summary){
         summary.wrong;
 
     const accuracy =
+    total === 0
+    ? 0 :
         Math.round(
             ((summary.exact + summary.correct) / total) * 100
         );
 
     container.innerHTML = `
-        <h2>Round Summary</h2>
+        <h2>
+        <img 
+        src="assets/icons/chart.svg"
+        class="icon icon-sm'
+        alt="Summary">
+        Round Summary</h2>
 
         <div class="result-row">
             <span>Exact Scores</span>
@@ -69,3 +76,4 @@ function renderSummary(summary){
     `;
 
 }
+
