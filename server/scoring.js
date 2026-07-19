@@ -154,9 +154,16 @@ const standings = calculateStandings(predictions);
         );
 
 const summary = calculateSummary(predictions);
-renderSummary(summary);        
+renderSummary(summary);    
+
+document.getElementById("scoreRoundbtn").disabled = true;
 
 
         }
+
+const inputs = document.querySelectorAll(".score-inputs input");
+inputs.forEach((input)=>{
+    input.disabled = true;
+});
 
         
