@@ -12,6 +12,7 @@
 
 @import url("leaderboard.css");
 
+@import url("bracket.css");
 
 .footer{
     width: 100%;
@@ -111,13 +112,7 @@
 
 
 
-.next-match{
-    padding: 16px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--card);
-    margin-top: 12px;
-}
+
 
 
 
