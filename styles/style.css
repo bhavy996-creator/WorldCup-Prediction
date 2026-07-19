@@ -15,11 +15,8 @@
 @import url("bracket.css");
 
 @import url("footer.css");
-.sub {
- color: #6A7589;
-    font-size: 13px;
-    margin-bottom: 16px;   
-}
+
+
 #board {
     display: flex;
     flex-direction: column;

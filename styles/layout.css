@@ -32,3 +32,16 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.sub {
+ color: #6A7589;
+    font-size: 13px;
+    margin-bottom: 16px;   
+}
+
+#board {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 720px;
+}
