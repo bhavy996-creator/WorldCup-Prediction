@@ -14,22 +14,7 @@
 
 @import url("bracket.css");
 
-.footer{
-    width: 100%;
-    border-top: 1px solid var(--border);
-    margin-top: 48px;
-  
-    background: #fff;
-}
-.footer-content{
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 28px 32px;
-    text-align: center;
-    color: var(--secondary);
-    font-size: 13px;
-    line-height: 1.6;
-}
+@import url("footer.css");
 .sub {
  color: #6A7589;
     font-size: 13px;
