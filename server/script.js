@@ -141,6 +141,10 @@ document
         .getElementById("scoreRoundbtn")
         .addEventListener("click", scoreRound);
 
+document
+        .getElementById("resetBtn")
+        .addEventListener("click", resetRound);        
+
 }
 
 function initializeApp(){

@@ -166,4 +166,9 @@ inputs.forEach((input)=>{
     input.disabled = true;
 });
 
+function resetRound(){
+    localStorage.removeItem("predictions");
+    location.reload();
+}
+
         
