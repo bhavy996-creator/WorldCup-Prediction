@@ -35,13 +35,13 @@ function renderRound(fixtures, title){
         card.className = "next-match";
         card.innerHTML = `
         <div class="next-fixture">
-        <div class ="next-team">
+        <div class ="next-team home">
         <img 
         src="assets/flags/${match.home.toLowerCase()}.svg"
         class="flag"
         alt="${match.home}">
 
-        <span>${match.home}</span>
+        <span class ="next-team-name">${match.home}</span>
 
         </div>
 
@@ -51,14 +51,15 @@ function renderRound(fixtures, title){
 
         </div>
 
-        <div class="next-team">
+        <div class="next-team away">
+
+        <span class ="next-team-name">${match.away}</span>
 
             <img
                 src="assets/flags/${match.away.toLowerCase()}.svg"
                 class="flag"
                 alt="${match.away}">
 
-            <span>${match.away}</span>
 
         </div>
 

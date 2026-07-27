@@ -7,56 +7,47 @@
 }
 
 .next-fixture{
-    display: grid;
+    display:grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 18px;
+    align-items:center;
+    gap:20px;
 }
 
 .next-team{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
 }
 
 .next-team.home{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    width: 100%;
+    justify-content:flex-start;
 }
 
 .next-team.away{
-    display:flex;
-    align-items:center;
     justify-content:flex-end;
-    gap:10px;
-    width: 100%;
 }
 
-.next-team.home .team-name,
-.next-team.away .team-name{
-    width:100px;
+.next-team-name{
+    width:110px;
+    font-size:16px;
+    font-weight:500;
 }
 
-.next-team.home .team-name{
+.next-team.home .next-team-name{
     text-align:left;
 }
 
-.next-team.away .team-name{
+.next-team.away .next-team-name{
     text-align:right;
 }
 
 .next-vs{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
+    width:60px;
+    text-align:center;
     font-weight:700;
     color:#374151;
 }
-
 .next-vs::before,
 .next-vs::after{
     content:"";
