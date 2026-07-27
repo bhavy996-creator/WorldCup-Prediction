@@ -8,9 +8,9 @@
 
 .next-fixture{
     display: grid;
-    grid-template-columns: 1fr 80px 1fr;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
 }
 
 .next-team{
@@ -21,11 +21,31 @@
 }
 
 .next-team.home{
-    justify-content:flex-start;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width: 100%;
 }
 
 .next-team.away{
+    display:flex;
+    align-items:center;
     justify-content:flex-end;
+    gap:10px;
+    width: 100%;
+}
+
+.next-team.home .team-name,
+.next-team.away .team-name{
+    width:100px;
+}
+
+.next-team.home .team-name{
+    text-align:left;
+}
+
+.next-team.away .team-name{
+    text-align:right;
 }
 
 .next-vs{
