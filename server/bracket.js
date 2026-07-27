@@ -34,10 +34,35 @@ function renderRound(fixtures, title){
         const card = document.createElement("div");
         card.className = "next-match";
         card.innerHTML = `
-        <h3>${title}</h3>
-        <p>${match.home}
-        vs 
-        ${match.away}</p>
+        <div class="next-fixture">
+        <div class ="next-team">
+        <img 
+        src="assets/flags/${match.home.toLowerCase()}.svg"
+        class="flag"
+        alt="${match.home}">
+
+        <span>${match.home}</span>
+
+        </div>
+
+        <div class="next-vs">
+
+            VS
+
+        </div>
+
+        <div class="next-team">
+
+            <img
+                src="assets/flags/${match.away.toLowerCase()}.svg"
+                class="flag"
+                alt="${match.away}">
+
+            <span>${match.away}</span>
+
+        </div>
+
+    </div>
         `;
         container.appendChild(card);
     });

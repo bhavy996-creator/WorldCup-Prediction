@@ -1,7 +1,46 @@
 .next-match{
-    padding: 16px;
+    padding: 16px 0;
     border: 1px solid var(--border);
     border-radius: 12px;
     background: var(--card);
     margin-top: 12px;
+}
+
+.next-fixture{
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    align-items: center;
+    gap: 16px;
+}
+
+.next-team{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.next-team.home{
+    justify-content:flex-start;
+}
+
+.next-team.away{
+    justify-content:flex-end;
+}
+
+.next-vs{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-weight:700;
+    color:#374151;
+}
+
+.next-vs::before,
+.next-vs::after{
+    content:"";
+    flex:1;
+    height:2px;
+    background:#9CA3AF;
 }
