@@ -19,6 +19,12 @@
     margin-bottom: 24px;
 }
 
+.toolbar-actions{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
 .sidebar{
     display: flex;
     flex-direction: column;
