@@ -27,16 +27,37 @@
             <main class ="main-content">
                 
                 <div class="toolbar">
-                  <div class="sub">
-        2026 World Cup · Round of 32
+                  <div class="tournament-progress">
+
+    <div class="progress-header">
+
+        <span id="roundName">
+            Round of 32
+        </span>
+
+        <span id="progressText">
+            0 / 6
+        </span>
+
     </div>
+
+    <div class="progress-bar">
+
+        <div
+            id="progressFill"
+            class="progress-fill">
+        </div>
+
+    </div>
+
+</div>
 
    <div class="toolbar-actions">
     <button id ="scoreRoundbtn">
         <img src="assets/icons/trophy.svg"
         class="icon icon-sm"
         alt="Trophy">
-        Calculate Results</button>
+        <span>Calculate Results</span></button>
         <button id ="resetBtn" class="secondary-btn">
             Reset
         </button>
