@@ -182,3 +182,15 @@ button:disabled{
     opacity: .6;
     cursor: not-allowed;
 }
+
+#scoreRoundbtn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+#scoreRoundbtn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+}
