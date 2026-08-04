@@ -1,3 +1,23 @@
+const FLAG = {
+    flag = `
+    <img src = "assets/flags/spain.svg" class="flag" alt="SP">
+    <img src = "assets/flags/uruguay.svg" class="flag" alt="UR">
+    <img src = "assets/flags/brazil.svg" class="flag" alt="BR">
+    <img src = "assets/flags/japan.svg" class="flag" alt="JA">
+    <img src = "assets/flags/england.svg" class="flag" alt="EN">
+    <img src = "assets/flags/netherlands.svg" class="flag" alt="NE">
+    <img src = "assets/flags/portugal.svg" class="flag" alt="PO">
+    <img src = "assets/flags/germany.svg" class="flag" alt="GE">
+    <img src = "assets/flags/argentina.svg" class="flag" alt="AR">
+    <img src = "assets/flags/mexico.svg" class="flag" alt="ME">
+    <img src = "assets/flags/switzerland.svg" class="flag" alt="SW">
+    <img src = "assets/flags/france.svg" class="flag" alt="FR">`
+};
+
+function getFlag(teamName){
+    return FLAGS[teamName] || "🏳️";
+}
+
 function createStandings() {
     const standings = {};
     FIXTURES.forEach((fixture) =>{
@@ -105,17 +125,30 @@ function renderStandings(teams) {
 
         const row = document.createElement("tr");
 
+         const pos = index + 1;
+ 
+                if (pos <= 2) {
+            row.classList.add("qualified-row");
+        }
+ 
+        const gdDisplay = team.goalDifference > 0
+            ? `+${team.goalDifference}`
+            : team.goalDifference;
+
         row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${team.name}</td>
+            <td><span class="pos-badge">${pos}</span></td>
+            <td class="team-cell">
+                <span class="team-flag">${getFlag(team.name)}</span>
+                <span class="team-name">${team.name}</span>
+            </td>
             <td>${team.played}</td>
             <td>${team.wins}</td>
             <td>${team.draws}</td>
             <td>${team.losses}</td>
             <td>${team.goalsFor}</td>
             <td>${team.goalsAgainst}</td>
-            <td>${team.goalDifference}</td>
-            <td>${team.points}</td>
+            <td>${gdDisplay}</td>
+            <td class="pts-cell">${team.points}</td>
         `;
 
         body.appendChild(row);
