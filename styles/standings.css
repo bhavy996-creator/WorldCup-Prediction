@@ -1,26 +1,36 @@
 .table-wrapper{
     overflow-x:auto;
+    border-radius:12px;
+    border:1px solid var(--border);
 }
 
 #standingsTable{
+    min-width: 650px;
     width:100%;
     border-collapse:collapse;
     table-layout: fixed;
     font-size:13px;
 }
 
+#standingsTable thead{
+    background:#F8FAFC;
+}
+
 #standingsTable th{
-    padding:12px 8px;
+    padding:14px 8px;
     text-align:center;
     font-weight:600;
+    font-size:12px;
     color:var(--secondary);
     border-bottom:2px solid var(--border);
+    text-transform:uppercase;
+    letter-spacing:.04em;
 }
 
 #standingsTable td{
-    padding:10px 6px;
+    padding:12px 6px;
     text-align:center;
-    border-bottom:2px solid var(--border);
+    border-bottom:1px solid var(--border);
     font-size: 12px;
     font-weight: 700;
     color: #6a7589;
@@ -33,29 +43,75 @@
     transition: .2s;
 }
 
-#standingsTable th:nth-child(1),
-#standingsTable td:nth-child(1){
-    width:7%;
+#standingsTable tbody tr:last-child td{
+    border-bottom:none;
 }
 
+/* Position column */
+#standingsTable th:nth-child(1),
+#standingsTable td:nth-child(1){
+    width:8%;
+}
+
+.pos-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:#E2E8F0;
+    color:#334155;
+    font-weight:700;
+}
+
+.qualified-row .pos-badge{
+    background:var(--accent);
+    color:#fff;
+}
+
+/* Team column */
 #standingsTable th:nth-child(2),
 #standingsTable td:nth-child(2){
-    width:34%;
+    width:30%;
     text-align:left;
     font-weight: 600;
 }
 
+.team-cell{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.team-flag{
+    font-size:16px;
+    line-height:1;
+}
+
+.team-name{
+    color:#1E293B;
+    font-weight:700;
+    letter-spacing:normal;
+    text-transform:none;
+}
+
+/* Points column */
 #standingsTable th:last-child,
 #standingsTable td:last-child{
     width:9%;
-    font-weight: 700;
+}
+
+.pts-cell{
+    font-weight: 800;
+    color:#0F172A;
 }
 
 #standingsTable tbody tr:nth-child(even){
     background:#FBFCFD;
 }
 
-#standingsTable tbody tr:first-child{
-    background:#ECFDF3;
+.qualified-row{
+    background:#ECFDF3 !important;
     border-left:4px solid var(--accent);
 }
