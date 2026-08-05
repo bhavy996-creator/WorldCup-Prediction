@@ -194,3 +194,12 @@ button:disabled{
     opacity:.7;
     cursor:not-allowed;
 }
+
+.validation-message{
+    color:#DC2626;
+    font-size:14px;
+    margin-bottom:12px;
+    min-height:20px;
+    font-weight:500;
+    
+}

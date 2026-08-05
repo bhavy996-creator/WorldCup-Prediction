@@ -53,8 +53,8 @@
 }
 
 .tournament-progress{
-
-    margin:20px 0;
+    width: 100%;
+    max-width: 320px;
 
 }
 
@@ -63,20 +63,17 @@
     display:flex;
 
     justify-content:space-between;
-
+    align-items: center;
     margin-bottom:10px;
 
 }
 
 .progress-bar{
-
     height:8px;
-
     background:#E5E7EB;
-
     border-radius:999px;
-
     overflow:hidden;
+    width: 100%;
 
 }
 
@@ -87,7 +84,8 @@
     height:100%;
 
     background:var(--accent);
+    border-radius: 999px;
 
-    transition:.4s;
+    transition:width .3s ease;
 
 }
