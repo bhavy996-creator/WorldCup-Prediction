@@ -31,6 +31,27 @@ function scoreRound() {
 
     const button = document.getElementById("scoreRoundbtn");
 
+    const inputs = document.querySelectorAll(".score-inputs input");
+
+const message = document.getElementById("validationMessage");
+
+let valid = true;
+
+inputs.forEach(input => {
+    if (input.value === "") {
+        valid = false;
+    }
+});
+
+if (!valid) {
+    message.textContent =
+        "Please complete all match predictions.";
+
+    return;
+}
+
+message.textContent = "";
+
     // Loading State
     button.disabled = true;
     button.innerHTML = `
@@ -43,7 +64,20 @@ function scoreRound() {
 
     setTimeout(() => {
 
-        const predictions = collectPredictions();
+        const predictionData = collectPredictions();
+
+if (!predictionData.isComplete) {
+
+    document.getElementById("validationMessage").textContent =
+        "Please complete all match predictions.";
+
+    return;
+
+}
+
+document.getElementById("validationMessage").textContent = "";
+
+const predictions = predictionData.predictions;
         savePredictions(predictions);
 
         let yourTotal = 0;
@@ -84,6 +118,8 @@ function scoreRound() {
 
         // Update Scoreboard
         updateScoreBoard(yourTotal, botTotal);
+
+
 
         // Winner
         let winner = `
@@ -140,6 +176,12 @@ function scoreRound() {
         // Summary
         const summary = calculateSummary(predictions);
         renderSummary(summary);
+
+        document.getElementById("scoreboard").classList.add("fade-up");
+        document.getElementById("summary").classList.add("fade-up");
+        document.querySelector(".leaderboard").classList.add("fade-up");
+        document.querySelector(".standings").classList.add("fade-up");
+        document.getElementById("nextRoundCard").classList.add("fade-up");
 
         // Lock Inputs
         const inputs = document.querySelectorAll(".score-inputs input");
