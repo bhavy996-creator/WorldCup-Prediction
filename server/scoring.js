@@ -178,6 +178,8 @@ const predictions = predictionData.predictions;
         const summary = calculateSummary(predictions);
         renderSummary(summary);
 
+        renderBreakdown(predictions);
+
         document.getElementById("scoreboard").classList.add("fade-up");
         document.getElementById("summary").classList.add("fade-up");
         document.querySelector(".leaderboard").classList.add("fade-up");

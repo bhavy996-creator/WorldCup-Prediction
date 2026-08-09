@@ -1,0 +1,49 @@
+.breakdown-item{
+
+    padding:16px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.breakdown-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.breakdown-header{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+.breakdown-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:6px 0;
+
+    color:var(--secondary);
+
+}
+
+.breakdown-row strong{
+
+    color:var(--text);
+
+}
