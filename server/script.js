@@ -127,6 +127,8 @@ function renderFixtures(){
         <strong>${prediction}</strong>
 
     </div>
+
+    <div class="match-status" id="status-${index}"></div>
 `;
 
         //adding the card to board
@@ -141,11 +143,26 @@ document
         .getElementById("scoreRoundbtn")
         .addEventListener("click", scoreRound);
 
+    //live validation
+    const inputs = document.querySelectorAll(".score-inputs input");
+    inputs.forEach(input )    
+
 document
         .getElementById("resetBtn")
         .addEventListener("click", resetRound);        
 
 }
+
+document
+.querySelectorAll(".score-inputs input")
+.forEach(input=>{
+
+    input.addEventListener(
+        "input",
+        updateProgress
+    );
+
+});
 
 function initializeApp(){
     renderFixtures();
