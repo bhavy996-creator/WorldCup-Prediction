@@ -203,3 +203,49 @@ button:disabled{
     font-weight:500;
     
 }
+
+.match-status{
+
+    margin-top:16px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    display:none;
+
+    font-weight:600;
+
+    text-align:center;
+
+}
+
+.match-status.exact{
+
+    display:block;
+
+    background:#ECFDF5;
+
+    color:#15803D;
+
+}
+
+.match-status.correct{
+
+    display:block;
+
+    background:#FEFCE8;
+
+    color:#A16207;
+
+}
+
+.match-status.wrong{
+
+    display:block;
+
+    background:#FEF2F2;
+
+    color:#B91C1C;
+
+}

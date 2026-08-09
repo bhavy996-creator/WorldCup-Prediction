@@ -83,7 +83,7 @@ const predictions = predictionData.predictions;
         let yourTotal = 0;
         let botTotal = 0;
 
-        predictions.forEach((prediction) => {
+        predictions.forEach((prediction, index) => {
 
             const resultKey = prediction.home + "|" + prediction.away;
             const actual = RESULTS[resultKey];
@@ -97,6 +97,7 @@ const predictions = predictionData.predictions;
             );
 
             yourTotal += yourPoints;
+            updateMatchStatus(index, yourPoints);
 
             const botScore = botPredict(
                 prediction.home,
