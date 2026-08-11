@@ -1,14 +1,38 @@
-.breakdown-item{
+#breakdownCard{
 
-    padding:16px 0;
-
-    border-bottom:1px solid var(--border);
+    margin-top:24px;
 
 }
 
-.breakdown-item:last-child{
+#breakdownList{
 
-    border-bottom:none;
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.breakdown-item{
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:var(--card);
+
+    transition:0.25s ease;
+
+}
+
+.breakdown-item:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
 
 }
 
@@ -20,36 +44,70 @@
 
     align-items:center;
 
-    gap:10px;
+    gap:12px;
 
-    font-weight:600;
+    margin-bottom:18px;
 
-    margin-bottom:14px;
+    font-weight:700;
+
+    font-size:16px;
 
 }
 
-.breakdown-row{
+.breakdown-team{
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
 
-    padding:6px 0;
+    gap:8px;
+
+}
+
+.breakdown-team .flag{
+
+    width:26px;
+
+    height:26px;
+
+    border-radius:50%;
+
+}
+
+.breakdown-vs{
+
+    color:#64748B;
+
+    font-weight:600;
+
+}
+
+.breakdown-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr auto;
+
+    row-gap:10px;
+
+    margin-bottom:16px;
+
+}
+
+.breakdown-grid span{
 
     color:var(--secondary);
 
 }
 
-.breakdown-row strong{
+.breakdown-grid strong{
 
     color:var(--text);
 
 }
 
-#breakdownCard{
+.breakdown-item .status-pill{
 
-    margin-top:24px;
+    margin:auto;
 
 }

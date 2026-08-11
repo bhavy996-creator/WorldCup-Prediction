@@ -192,6 +192,7 @@ const predictions = predictionData.predictions;
         inputs.forEach((input) => {
             input.disabled = true;
         });
+        updateProgress();
 
         // Restore Button
         button.disabled = false;

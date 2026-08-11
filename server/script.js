@@ -136,38 +136,37 @@ function renderFixtures(){
     });
 }
 
-function bindEvents(){
+function bindEvents() {
 
-    //connecting the button to the function
-document
+    document
         .getElementById("scoreRoundbtn")
         .addEventListener("click", scoreRound);
 
-    //live validation
-    const inputs = document.querySelectorAll(".score-inputs input");
-    inputs.forEach(input )    
-
-document
+    document
         .getElementById("resetBtn")
-        .addEventListener("click", resetRound);        
+        .addEventListener("click", resetRound);
+
+    const inputs =
+        document.querySelectorAll(".score-inputs input");
+
+    inputs.forEach(input => {
+
+        input.addEventListener(
+            "input",
+            updateProgress
+        );
+
+    });
 
 }
 
-document
-.querySelectorAll(".score-inputs input")
-.forEach(input=>{
 
-    input.addEventListener(
-        "input",
-        updateProgress
-    );
-
-});
 
 function initializeApp(){
     renderFixtures();
     restorePrediction();
     bindEvents();
+    updateProgress();
 
 }
 initializeApp();
