@@ -164,6 +164,7 @@ function bindEvents() {
 
 function initializeApp(){
     renderFixtures();
+    hideResultCards();
     restorePrediction();
     bindEvents();
     updateProgress();
@@ -189,3 +190,56 @@ window.addEventListener("scroll", () => {
     }
 
 });
+
+function hideResultCards(){
+
+    const cards = [
+
+        "scoreboard",
+        "summary",
+        "leaderboardCard",
+        "standingsCard",
+        "nextRoundCard",
+        "breakdownCard"
+
+    ];
+
+    cards.forEach(id=>{
+
+        document
+            .getElementById(id)
+            .classList.add("fade-hidden");
+
+    });
+
+}
+
+function revealResultCards(){
+
+    const cards = [
+
+        "scoreboard",
+        "summary",
+        "leaderboardCard",
+        "standingsCard",
+        "nextRoundCard",
+        "breakdownCard"
+
+    ];
+
+    cards.forEach((id,index)=>{
+
+        setTimeout(()=>{
+
+            const card =
+                document.getElementById(id);
+
+            card.classList.remove("fade-hidden");
+
+            card.classList.add("fade-show");
+
+        },index*220);
+
+    });
+
+}

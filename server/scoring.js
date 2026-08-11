@@ -180,11 +180,7 @@ const predictions = predictionData.predictions;
 
         renderBreakdown(predictions);
 
-        document.getElementById("scoreboard").classList.add("fade-up");
-        document.getElementById("summary").classList.add("fade-up");
-        document.querySelector(".leaderboard").classList.add("fade-up");
-        document.querySelector(".standings").classList.add("fade-up");
-        document.getElementById("nextRoundCard").classList.add("fade-up");
+        revealResultCards();
 
         // Lock Inputs
         const inputs = document.querySelectorAll(".score-inputs input");
