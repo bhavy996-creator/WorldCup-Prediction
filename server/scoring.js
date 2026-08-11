@@ -171,7 +171,15 @@ const predictions = predictionData.predictions;
         renderStandings(sortedTeams);
 
         // Next Round
-        const nextRound = generateNextRound(predictions);
+        Tournament.rounds.round32 = predictions;
+
+Tournament.rounds.quarterFinals =
+    generateRound(predictions);
+
+const nextRound =
+    Tournament.rounds.quarterFinals;
+
+    console.log(Tournament);
         renderRound(nextRound, "Quarter Finals");
 
         // Summary
