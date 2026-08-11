@@ -16,8 +16,9 @@
 .next-team{
     display:flex;
     align-items:center;
+    justify-content: center;
     gap:10px;
-    width:100%;
+    padding: 8px 0;
 }
 
 .next-team.home{
@@ -54,4 +55,49 @@
     flex:1;
     height:2px;
     background:#9CA3AF;
+}
+
+.bracket-header{
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:var(--secondary);
+
+    margin-bottom:16px;
+
+}
+
+.vs-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:18px 0;
+
+    color:#94A3B8;
+
+    font-weight:600;
+
+}
+
+.vs-divider::before,
+.vs-divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#E5E7EB;
+
 }
