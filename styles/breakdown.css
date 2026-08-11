@@ -44,7 +44,7 @@
 
     align-items:center;
 
-    gap:14px;
+    gap:24px;
 
     margin-bottom:20px;
 
@@ -56,7 +56,13 @@
 
     align-items:center;
 
-    gap:8px;
+    gap:10px;
+
+}
+
+.breakdown-team span{
+
+    font-size:17px;
 
     font-weight:600;
 
@@ -75,55 +81,16 @@
 .breakdown-vs{
 
     color:#94A3B8;
-    font-size: 14px;
-    letter-spacing: .5px;
-    font-weight:600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight:500;
+    text-transform: uppercase;
 
 }
 
-.score-section{
-
-    text-align:center;
-
-    margin:12px 0;
-
-}
-
-.score-title{
-
-    display:block;
-
-    font-size:13px;
-
-    color:var(--secondary);
-
-    margin-bottom:10px;
-
-}
-
-.score-box{
-
-    font-size:22px;
-
-    font-weight:600;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-    letter-spacing: .5px;
-    line-height: 1;
-
-}
-
-.score-box span{
-
+.score-separator{
     color:#CBD5E1;
-    font-weight: 500;
-
+    margin: 0 8px;
 }
 
 .divider{

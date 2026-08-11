@@ -24,17 +24,20 @@ let statusClass = "";
 
 if(points === 5){
 
-    statusText = "Perfect Prediction --> +5 pts";
+    statusText = "Perfect Prediction • +5 pts";
+    statusClass = "exact";
 
 }
 else if(points === 2){
 
-    statusText = "Correct Winner --> +2 pts";
+    statusText = "Correct Winner • +2 pts";
+    statusClass = "correct";
 
 }
 else{
 
-    statusText = "Prediction Missed --> 0 pts";
+    statusText = "Prediction Missed • 0 pts";
+    statusClass = "wrong";
 
 }
 
@@ -72,11 +75,11 @@ else{
 
         <div class="comparison-score">
 
-            ${prediction.homeScore}
+            <span>${prediction.homeScore}</span>
 
-            <span>:</span>
+            <span class="score-separator">-</span>
 
-            ${prediction.awayScore}
+            <span>${prediction.awayScore}</span>
 
         </div>
 
@@ -88,20 +91,23 @@ else{
             Result
         </span>
 
-        <div class="comparison-score actual-score">
+        <div class="comparison-score">
 
-            ${actual.home}
+    <span class="actual-score">
+        ${actual.home}
+    </span>
 
-            <span>:</span>
+    <span class="score-separator">-</span>
 
-            ${actual.away}
+    <span class="actual-score">
+        ${actual.away}
+    </span>
 
-        </div>
+</div>
 
     </div>
 
 </div>
-
 <div class="divider"></div>
 
 <div class="breakdown-status ${statusClass}">

@@ -238,11 +238,11 @@
 
     display:flex;
 
-    justify-content:space-around;
+    justify-content:space-evenly;
 
     align-items:center;
 
-    margin:24px 0;
+    margin:18px 0;
 
 }
 
@@ -257,33 +257,60 @@
     display:block;
 
     font-size:13px;
+    font-weight: 500;
 
-    color:var(--secondary);
+    color:#64748B;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 
 .comparison-score{
 
-    font-size:30px;
+    display:flex;
 
-    font-weight:800;
+    justify-content:center;
 
-    letter-spacing:1px;
+    align-items:center;
+    gap: 12px;
+    font-size: 26px;
+    font-weight: 600;
+    color:#111827;
 
 }
 
+.comparison-block{
+
+    text-align:center;
+
+}
+
+.comparison-title{
+
+    display:block;
+
+    font-size:13px;
+    font-weight: 500;
+
+    color:#64748B;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
 .comparison-score span{
 
-    color:#CBD5E1;
-
-    margin:0 6px;
+    margin:0 5px;
+    font-weight: 600;
 
 }
 
 .actual-score{
 
     color:#16A34A;
+    font-weight: 700;
 
 }
