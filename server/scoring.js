@@ -192,6 +192,9 @@ const predictions = predictionData.predictions;
         inputs.forEach((input) => {
             input.disabled = true;
         });
+        document
+    .getElementById("lockBanner")
+    .classList.remove("hidden");
         updateProgress();
 
         // Restore Button
@@ -213,7 +216,9 @@ const predictions = predictionData.predictions;
 function resetRound() {
 
     localStorage.removeItem("predictions");
-
+    document
+    .getElementById("lockBanner")
+    .classList.add("hidden");
     location.reload();
 
 }

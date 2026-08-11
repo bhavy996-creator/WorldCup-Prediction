@@ -31,6 +31,33 @@
     flex: 1;
 }
 
+.lock-banner{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    background:#ECFDF5;
+
+    border:1px solid #BBF7D0;
+
+    color:#15803D;
+
+    font-size:14px;
+    font-weight:600;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
 .round-title{
 
     display:flex;
