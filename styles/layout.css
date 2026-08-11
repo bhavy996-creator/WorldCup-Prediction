@@ -140,6 +140,12 @@
 
 }
 
+.prediction-section{
+
+    position:relative;
+
+}
+
 .progress-bar{
     height:8px;
     background:#E5E7EB;
@@ -225,5 +231,59 @@
     button{
         width:100%;
     }
+
+}
+
+.score-comparison{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    margin:24px 0;
+
+}
+
+.comparison-block{
+
+    text-align:center;
+
+}
+
+.comparison-title{
+
+    display:block;
+
+    font-size:13px;
+
+    color:var(--secondary);
+
+    margin-bottom:10px;
+
+}
+
+.comparison-score{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+}
+
+.comparison-score span{
+
+    color:#CBD5E1;
+
+    margin:0 6px;
+
+}
+
+.actual-score{
+
+    color:#16A34A;
 
 }

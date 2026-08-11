@@ -24,22 +24,17 @@ let statusClass = "";
 
 if(points === 5){
 
-    statusText = "✓ Exact • +5 pts";
-    statusClass = "exact";
+    statusText = "Perfect Prediction --> +5 pts";
 
 }
-
 else if(points === 2){
 
-    statusText = "✓ Correct • +2 pts";
-    statusClass = "correct";
+    statusText = "Correct Winner --> +2 pts";
 
 }
-
 else{
 
-    statusText = "✕ Wrong • 0 pts";
-    statusClass = "wrong";
+    statusText = "Prediction Missed --> 0 pts";
 
 }
 
@@ -52,64 +47,56 @@ else{
 <div class="breakdown-header">
 
     <div class="breakdown-team">
-
-        <img
-            src="assets/flags/${prediction.home.toLowerCase()}.svg"
-            class="flag"
-            alt="${prediction.home}">
-
+        <img src="assets/flags/${prediction.home.toLowerCase()}.svg"
+             class="flag">
         <span>${prediction.home}</span>
-
     </div>
 
     <span class="breakdown-vs">VS</span>
 
     <div class="breakdown-team">
-
-        <img
-            src="assets/flags/${prediction.away.toLowerCase()}.svg"
-            class="flag"
-            alt="${prediction.away}">
-
+        <img src="assets/flags/${prediction.away.toLowerCase()}.svg"
+             class="flag">
         <span>${prediction.away}</span>
-
     </div>
 
 </div>
 
-<div class="score-section">
+<div class="score-comparison">
 
-    <span class="score-title">
-        Prediction
-    </span>
+    <div class="comparison-block">
 
-    <div class="score-box">
+        <span class="comparison-title">
+            Prediction
+        </span>
 
-        ${prediction.homeScore}
+        <div class="comparison-score">
 
-        <span>-</span>
+            ${prediction.homeScore}
 
-        ${prediction.awayScore}
+            <span>:</span>
+
+            ${prediction.awayScore}
+
+        </div>
 
     </div>
 
-</div>
+    <div class="comparison-block">
 
-<div class="divider"></div>
+        <span class="comparison-title">
+            Result
+        </span>
 
-<div class="score-section">
+        <div class="comparison-score actual-score">
 
-    <span class="score-title">
-        Actual Result
-    </span>
+            ${actual.home}
 
-    <div class="score-box">
+            <span>:</span>
 
-        ${actual.home}
+            ${actual.away}
 
-        <span>-</span>
-
-        ${actual.away}
+        </div>
 
     </div>
 
@@ -118,9 +105,7 @@ else{
 <div class="divider"></div>
 
 <div class="breakdown-status ${statusClass}">
-
     ${statusText}
-
 </div>
 
 `;
