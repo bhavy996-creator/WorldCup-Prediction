@@ -180,6 +180,8 @@ const predictions = predictionData.predictions;
 
         renderBreakdown(predictions);
 
+        lockPredictionCards(predictions);
+
         revealResultCards();
 
         // Lock Inputs
@@ -215,6 +217,48 @@ function resetRound() {
     document
     .getElementById("lockBanner")
     .classList.add("hidden");
+    document
+.querySelectorAll(".locked-score")
+.forEach(score=>{
+
+    score.classList.add("hidden");
+
+});
+
+document
+.querySelectorAll(".score-inputs")
+.forEach(inputs=>{
+
+    inputs.classList.remove("hidden");
+
+});
     location.reload();
+
+}
+
+function lockPredictionCards(predictions){
+
+    const matches =
+        document.querySelectorAll(".match");
+
+    matches.forEach((card,index)=>{
+
+        const inputs =
+            card.querySelector(".score-inputs");
+
+        const locked =
+            card.querySelector(".locked-score");
+
+        inputs.classList.add("hidden");
+
+        locked.classList.remove("hidden");
+
+        locked.querySelector(".locked-home").textContent =
+            predictions[index].homeScore;
+
+        locked.querySelector(".locked-away").textContent =
+            predictions[index].awayScore;
+
+    });
 
 }

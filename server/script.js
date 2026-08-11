@@ -98,6 +98,19 @@ function renderFixtures(){
 
     </div>
 
+    <div class="locked-score hidden">
+
+    <span class="locked-home"></span>
+
+    <img
+        src="assets/icons/football.svg"
+        class="icon icon-sm"
+        alt="Football">
+
+    <span class="locked-away"></span>
+
+</div>
+
     <div class="team away-team">
     
 
