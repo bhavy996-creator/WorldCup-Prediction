@@ -170,3 +170,22 @@ function initializeApp(){
 
 }
 initializeApp();
+
+window.addEventListener("scroll", () => {
+
+    const toolbar =
+        document.querySelector(".toolbar");
+
+    if(window.scrollY > 120){
+
+        toolbar.classList.add("compact");
+
+    }
+
+    else{
+
+        toolbar.classList.remove("compact");
+
+    }
+
+});

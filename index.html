@@ -27,44 +27,61 @@
             <main class ="main-content">
                 
                 <div class="toolbar">
-                  <div class="tournament-progress">
 
+    <div class="toolbar-left">
 
-    <div class="progress-header">
+        <div class="round-title">
 
-        <span id="roundName">
-            Round of 32
-        </span>
+            <span id="roundName">
+                Round of 32
+            </span>
 
-        <span id="progressText">
-            0 / 6
-        </span>
+            <span id="progressText">
+                0 / 6
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                id="progressFill"
+                class="progress-fill">
+            </div>
+
+        </div>
 
     </div>
 
-    <div class="progress-bar">
+    <div class="toolbar-actions">
 
         <div
-            id="progressFill"
-            class="progress-fill">
+            id="validationMessage"
+            class="validation-message">
         </div>
 
-    </div>
-</div>
+        <button id="scoreRoundbtn">
 
-   <div class="toolbar-actions">
+            <img
+                src="assets/icons/trophy.svg"
+                class="icon icon-sm"
+                alt="Trophy">
 
-    <div id="validationMessage" class="validation-message"></div>
-    <button id ="scoreRoundbtn">
-        <img src="assets/icons/trophy.svg"
-        class="icon icon-sm"
-        alt="Trophy">
-        <span>Calculate Results</span></button>
-        <button id ="resetBtn" class="secondary-btn">
-            Reset
+            <span>Calculate Results</span>
+
         </button>
-        </div>
+
+        <button
+            id="resetBtn"
+            class="secondary-btn">
+
+            Reset
+
+        </button>
+
     </div>
+
+</div>
     <div id="board"></div>
 
     <!-- Match breakdown -->
