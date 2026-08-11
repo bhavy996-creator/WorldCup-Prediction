@@ -19,21 +19,29 @@ function renderBreakdown(predictions) {
             actual
         );
 
-        let badge = "";
-        let badgeClass = "";
+        let statusText = "";
+let statusClass = "";
 
-        if (points === 5) {
-            badge = "✓ Exact Prediction";
-            badgeClass = "exact";
-        }
-        else if (points === 2) {
-            badge = "✓ Correct Result";
-            badgeClass = "correct";
-        }
-        else {
-            badge = "✕ Wrong Prediction";
-            badgeClass = "wrong";
-        }
+if(points === 5){
+
+    statusText = "✓ Exact • +5 pts";
+    statusClass = "exact";
+
+}
+
+else if(points === 2){
+
+    statusText = "✓ Correct • +2 pts";
+    statusClass = "correct";
+
+}
+
+else{
+
+    statusText = "✕ Wrong • 0 pts";
+    statusClass = "wrong";
+
+}
 
         const card = document.createElement("div");
 
@@ -69,19 +77,49 @@ function renderBreakdown(predictions) {
 
 </div>
 
-<div class="breakdown-grid">
+<div class="score-section">
 
-    <span>Your Prediction</span>
-    <strong>${prediction.homeScore}-${prediction.awayScore}</strong>
+    <span class="score-title">
+        Prediction
+    </span>
 
-    <span>Actual Result</span>
-    <strong>${actual.home}-${actual.away}</strong>
+    <div class="score-box">
+
+        ${prediction.homeScore}
+
+        <span>-</span>
+
+        ${prediction.awayScore}
+
+    </div>
 
 </div>
 
-<div class="status-pill ${badgeClass}">
+<div class="divider"></div>
 
-    ${badge}
+<div class="score-section">
+
+    <span class="score-title">
+        Actual Result
+    </span>
+
+    <div class="score-box">
+
+        ${actual.home}
+
+        <span>-</span>
+
+        ${actual.away}
+
+    </div>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="breakdown-status ${statusClass}">
+
+    ${statusText}
 
 </div>
 
