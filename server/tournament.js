@@ -65,3 +65,21 @@ function generateRound(predictions){
     return fixtures;
 
 }
+
+function getNextRound(currentRound){
+
+    if(currentRound === "round32"){
+        return "quarterFinals";
+    }
+
+    if(currentRound === "quarterFinals"){
+        return "semiFinals";
+    }
+
+    if(currentRound === "semiFinals"){
+        return "final";
+    }
+
+    return null;
+
+}

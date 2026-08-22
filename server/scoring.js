@@ -87,7 +87,8 @@ const predictions = predictionData.predictions;
 
             const resultKey = prediction.home + "|" + prediction.away;
             const actual = RESULTS[resultKey];
-
+            
+            if(actual){
             const yourPoints = scorePick(
                 {
                     home: prediction.homeScore,
@@ -99,6 +100,7 @@ const predictions = predictionData.predictions;
             yourTotal += yourPoints;
             updateMatchStatus(index, yourPoints);
 
+            // bot score
             const botScore = botPredict(
                 prediction.home,
                 prediction.away
@@ -114,9 +116,13 @@ const predictions = predictionData.predictions;
             const botPoints = scorePick(botPrediction, actual);
 
             botTotal += botPoints;
+            }
 
         });
 
+        
+
+            
         // Update Scoreboard
         updateScoreBoard(yourTotal, botTotal);
 
@@ -171,11 +177,26 @@ const predictions = predictionData.predictions;
         renderStandings(sortedTeams);
 
         // Next Round
-        Tournament.rounds.round32 = predictions;
+        Tournament.rounds[Tournament.currentRound] = predictions;
 
-Tournament.rounds.quarterFinals =
-    generateRound(predictions);
+const nextRound = generateRound(predictions);
 
+const nextRoundKey =  getNextRound(Tournament.currentRound);
+if(nextRoundKey){
+
+    Tournament.rounds[nextRoundKey] =
+        nextRound;
+
+    setTimeout(() => {
+
+        startRound(
+            nextRound,
+            nextRoundKey
+        );
+
+    }, 1500);
+
+}
 setTimeout(() => {
 
     startRound(

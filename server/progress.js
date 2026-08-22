@@ -16,10 +16,12 @@ function updateProgress(){
 
     }
 
-    const total = FIXTURES.length;
+    const total = Tournament.currentFixtures.length;
 
     const percent =
-        (completed / total) * 100;
+        total > 0
+            ? (completed / total) * 100
+            : 0;
 
     document.getElementById("progressText")
         .textContent =

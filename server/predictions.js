@@ -8,8 +8,7 @@ function collectPredictions() {
     cards.forEach((card, index) => {
 
         const inputs = card.querySelectorAll("input");
-        const fixture = FIXTURES[index];
-
+        const fixture = Tournament.currentFixtures[index];
         const homeValue = inputs[0].value.trim();
         const awayValue = inputs[1].value.trim();
 

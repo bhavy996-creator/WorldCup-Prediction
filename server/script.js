@@ -176,6 +176,7 @@ function bindEvents() {
 
 
 function initializeApp(){
+    Tournament.currentFixtures = FIXTURES;
     renderFixtures(FIXTURES);
     hideResultCards();
     restorePrediction();
@@ -260,6 +261,7 @@ function revealResultCards(){
 function startRound(fixtures, roundKey){
 
     Tournament.currentRound = roundKey;
+    Tournament.currentFixtures = fixtures;
 
     document.getElementById("roundName").textContent =
         ROUND_TITLES[roundKey];
