@@ -1,6 +1,6 @@
 const Tournament = {
 
-    currentRound: "Round of 32",
+    currentRound: "round32",
 
     rounds: {
 
@@ -12,6 +12,15 @@ const Tournament = {
     },
 
     champion: null
+
+};
+
+const ROUND_TITLES = {
+
+    round32: "Round of 32",
+    quarterFinals: "Quarter Finals",
+    semiFinals: "Semi Finals",
+    final: "Final"
 
 };
 

@@ -35,15 +35,17 @@ function collectPredictions() {
 
 // Save predictions
 function savePredictions(predictions) {
+    const round = Tournament.currentRound;
     localStorage.setItem(
-        "predictions",
+        `predictions_${round}`,
         JSON.stringify(predictions)
     );
 }
 
 // Load predictions
 function loadPredictions() {
-    const raw = localStorage.getItem("predictions");
+    const round = Tournament.currentRound;
+    const raw = localStorage.getItem(`predictions_${round}`);
     return JSON.parse(raw || "[]");
 }
 

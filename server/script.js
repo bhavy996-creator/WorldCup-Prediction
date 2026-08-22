@@ -37,13 +37,13 @@ function formatDate(dateString){
     });
 }
 
-function renderFixtures(){
+function renderFixtures(fixtures){
     
     const board = document.getElementById("board");
 
     board.innerHTML = "";   //clear the board before entering the data, this helps in preventing duplicate data
 
-    FIXTURES.forEach((match, index) => {
+    fixtures.forEach((match, index) => {
 
         //we get the bot prediction first
         const prediction = botPredict(match.home, match.away);
@@ -176,7 +176,7 @@ function bindEvents() {
 
 
 function initializeApp(){
-    renderFixtures();
+    renderFixtures(FIXTURES);
     hideResultCards();
     restorePrediction();
     bindEvents();
@@ -254,5 +254,28 @@ function revealResultCards(){
         },index*220);
 
     });
+
+}
+
+function startRound(fixtures, roundKey){
+
+    Tournament.currentRound = roundKey;
+
+    document.getElementById("roundName").textContent =
+        ROUND_TITLES[roundKey];
+
+ document.getElementById("progressText").textContent =
+    `0 / ${fixtures.length}`;
+
+document.getElementById("progressFill").style.width =
+    "0%";
+
+    renderFixtures(fixtures);
+
+    restorePrediction();
+
+    bindEvents();
+
+    updateProgress();
 
 }

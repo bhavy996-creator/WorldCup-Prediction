@@ -176,11 +176,14 @@ const predictions = predictionData.predictions;
 Tournament.rounds.quarterFinals =
     generateRound(predictions);
 
-const nextRound =
-    Tournament.rounds.quarterFinals;
+setTimeout(() => {
 
-    console.log(Tournament);
-        renderRound(nextRound, "Quarter Finals");
+    startRound(
+        Tournament.rounds.quarterFinals,
+        "quarterFinals"
+    );
+
+}, 1500);
 
         // Summary
         const summary = calculateSummary(predictions);
@@ -221,7 +224,10 @@ const nextRound =
 
 function resetRound() {
 
-    localStorage.removeItem("predictions");
+    localStorage.removeItem("predictions_round32");
+    localStorage.removeItem("predictions_quarterFinals");
+    localStorage.removeItem("predictions_semiFinals");
+    localStorage.removeItem("predictions_final");
     document
     .getElementById("lockBanner")
     .classList.add("hidden");
