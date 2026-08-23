@@ -9,15 +9,19 @@ function renderBreakdown(predictions) {
         const resultKey =
             prediction.home + "|" + prediction.away;
 
-        const actual = RESULTS[resultKey];
+const actual = RESULTS[resultKey];
 
-        const points = scorePick(
-            {
-                home: prediction.homeScore,
-                away: prediction.awayScore
-            },
-            actual
-        );
+if(!actual){
+    return;
+}
+
+const points = scorePick(
+    {
+        home: prediction.homeScore,
+        away: prediction.awayScore
+    },
+    actual
+);
 
         let statusText = "";
 let statusClass = "";

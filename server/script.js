@@ -22,10 +22,24 @@ function botPredict(home, away) {
     const h = strength[home];
     const a = strength[away];
 
-    const lambdaHome = h.attack * (a.defense / LEAGUE_AVG);
-    const lambdaAway = a.attack * (h.defense / LEAGUE_AVG);
+    if (!h || !a) {
 
-    return Math.round(lambdaHome) + "-" + Math.round(lambdaAway);
+        return "0-0";
+
+    }
+
+    const lambdaHome =
+        h.attack * (a.defense / LEAGUE_AVG);
+
+    const lambdaAway =
+        a.attack * (h.defense / LEAGUE_AVG);
+
+    return (
+        Math.round(lambdaHome) +
+        "-" +
+        Math.round(lambdaAway)
+    );
+
 }
 
 function formatDate(dateString){
@@ -56,14 +70,14 @@ function renderFixtures(fixtures){
         card.innerHTML = `
     <div class="match-header">
 
-        <span class="round">${match.round}</span>
+        <span class="round">${match.round || ROUND_TITLES[Tournament.currentRound]}</span>
 
         <div class ="date">
         <img src ="assets/icons/calendar.svg"
         class = "icon-sm"
         alt = "Calendar">
 
-        <span>${formatDate(match.date)}</span>
+        <span>${match.date ? formatDate(match.date) : "Upcoming"}</span>
 
     </div>
     </div>
