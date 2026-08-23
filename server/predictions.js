@@ -17,11 +17,12 @@ function collectPredictions() {
         }
 
         predictions.push({
-            home: fixture.home,
-            away: fixture.away,
-            homeScore: Number(homeValue),
-            awayScore: Number(awayValue)
-        });
+    home: fixture.home,
+    away: fixture.away,
+    homeScore: Number(homeValue),
+    awayScore: Number(awayValue),
+    round: Tournament.currentRound
+});
 
     });
 
