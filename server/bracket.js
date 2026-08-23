@@ -20,39 +20,41 @@ function renderRound(fixtures, title) {
 
             </div>
 
-            <div class="next-team home">
+            <div class="next-fixture">
 
-                <img
-                    src="assets/flags/${match.home.toLowerCase()}.svg"
-                    class="flag"
-                    alt="${match.home}">
+                <div class="next-team home">
 
-                <span class="next-team-name">
+                    <img
+                        src="assets/flags/${match.home.toLowerCase()}.svg"
+                        class="flag"
+                        alt="${match.home}">
 
-                    ${match.home}
+                    <span class="next-team-name">
+                        ${match.home}
+                    </span>
 
-                </span>
+                </div>
 
-            </div>
 
-            <div class="vs-divider">
+                <div class="next-vs">
 
-                <span>VS</span>
+                    VS
 
-            </div>
+                </div>
 
-            <div class="next-team away">
 
-                <img
-                    src="assets/flags/${match.away.toLowerCase()}.svg"
-                    class="flag"
-                    alt="${match.away}">
+                <div class="next-team away">
 
-                <span class="next-team-name">
+                    <span class="next-team-name">
+                        ${match.away}
+                    </span>
 
-                    ${match.away}
+                    <img
+                        src="assets/flags/${match.away.toLowerCase()}.svg"
+                        class="flag"
+                        alt="${match.away}">
 
-                </span>
+                </div>
 
             </div>
 
@@ -62,16 +64,20 @@ function renderRound(fixtures, title) {
 
     });
 
-    // START NEXT ROUND BUTTON
-   const action = document.createElement("div");
+    // START NEXT ROUND ACTION
+    const action =
+        document.createElement("div");
 
-    action.className = "next-round-action";
+    action.className =
+        "next-round-action";
 
     action.innerHTML = `
 
         <div class="next-round-message">
 
-            <strong>${title} are ready</strong>
+            <strong>
+                ${title} are ready
+            </strong>
 
             <span>
                 Analyse the matchups and start the round when you're ready.
@@ -91,8 +97,8 @@ function renderRound(fixtures, title) {
 
     container.appendChild(action);
 
-    // BUTTON EVENT
-      document
+     // START ROUND BUTTON
+    document
         .getElementById("startNextRoundBtn")
         .addEventListener("click", () => {
 
@@ -100,6 +106,12 @@ function renderRound(fixtures, title) {
                 Tournament.nextFixtures,
                 Tournament.nextRoundKey
             );
+
+            // Return to the prediction area
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
         });
 

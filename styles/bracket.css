@@ -1,105 +1,191 @@
-.next-match{
-    padding: 16px 0;
+.next-match {
+
+    padding: 14px 16px;
+
     border: 1px solid var(--border);
+
     border-radius: 12px;
+
     background: var(--card);
-    margin-top: 12px;
+
+    margin-top: 10px;
+
 }
 
-.next-fixture{
-    display:grid;
+.next-fixture {
+
+    display: grid;
+
     grid-template-columns: 1fr auto 1fr;
-    align-items:center;
-    gap:20px;
-}
 
-.next-team{
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    gap:10px;
-    padding: 8px 0;
-}
+    align-items: center;
 
-.next-team.home{
-    justify-content:flex-start;
-}
-
-.next-team.away{
-    justify-content:flex-end;
-}
-
-.next-team-name{
-    width:110px;
-    font-size:16px;
-    font-weight:500;
-}
-
-.next-team.home .next-team-name{
-    text-align:left;
-}
-
-.next-team.away .next-team-name{
-    text-align:right;
-}
-
-.next-vs{
-    width:60px;
-    text-align:center;
-    font-weight:700;
-    color:#374151;
-}
-.next-vs::before,
-.next-vs::after{
-    content:"";
-    flex:1;
-    height:2px;
-    background:#9CA3AF;
-}
-
-
-.bracket-header{
-
-    text-align:center;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    color:var(--secondary);
-
-    margin-bottom:16px;
+    gap: 16px;
 
 }
 
-.vs-divider{
+.next-team {
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
 
-    justify-content:center;
+    gap: 8px;
 
-    gap:12px;
+    font-size: 14px;
 
-    margin:18px 0;
+    font-weight: 600;
 
-    color:#94A3B8;
-
-    font-weight:600;
+    min-width: 0;
 
 }
 
-.vs-divider::before,
-.vs-divider::after{
+.next-team.home {
 
-    content:"";
+    justify-content: flex-start;
 
-    flex:1;
+}
 
-    height:1px;
+.next-team.away {
 
-    background:#E5E7EB;
+    justify-content: flex-end;
+
+}
+
+
+.next-team-name {
+
+    white-space: nowrap;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+.next-team.home .next-team-name {
+
+    text-align: left;
+
+}
+
+.next-team.away .next-team-name {
+
+    text-align: right;
+
+}
+
+.next-team .flag {
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+
+}
+
+.next-vs {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #94A3B8;
+
+    text-align: center;
+
+    padding: 0 4px;
+
+}
+.bracket-header {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--secondary);
+
+    margin-bottom: 10px;
+
+}
+
+.next-round-action {
+
+    margin-top: 14px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+}
+
+.next-round-message {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+.next-round-message strong {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+.next-round-message span {
+
+    font-size: 12px;
+
+    color: var(--secondary);
+
+}
+.start-next-round-btn {
+
+    border: none;
+
+    background: #16A34A;
+
+    color: #fff;
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: .2s ease;
+
+}
+
+.start-next-round-btn:hover {
+
+    background: #15803D;
+
+    transform: translateY(-1px);
 
 }
 
@@ -142,81 +228,5 @@
     font-weight: 700;
 
     color: #16A34A;
-
-}
-
-.next-round-action {
-
-    margin-top: 18px;
-
-    padding: 18px;
-
-    border-top: 1px solid var(--border);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-}
-
-.next-round-message {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 4px;
-
-}
-
-.next-round-message strong {
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-}
-
-.next-round-message span {
-
-    font-size: 13px;
-
-    color: var(--secondary);
-
-}
-
-.start-next-round-btn {
-
-    border: none;
-
-    background: #16A34A;
-
-    color: white;
-
-    padding: 10px 16px;
-
-    border-radius: 9px;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    white-space: nowrap;
-
-    transition: .2s ease;
-
-}
-
-.start-next-round-btn:hover {
-
-    background: #15803D;
-
-    transform: translateY(-1px);
 
 }
