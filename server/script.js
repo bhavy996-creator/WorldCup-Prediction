@@ -191,8 +191,9 @@ function bindEvents(){
 
 function initializeApp(){
 
-    const restored =
-        loadTournamentState();
+    bindEvents();
+
+    const restored = loadTournamentState();
 
     if(restored && Tournament.champion){
 
@@ -231,7 +232,6 @@ function initializeApp(){
     }
 
     hideResultCards();
-    bindEvents();
     updateProgress();
 }
 
