@@ -1,10 +1,33 @@
-body{
+/* =========================================
+   GLOBAL RESET
+   ========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: clip;
+}
+
+body {
     margin: 0;
+    width: 100%;
+    min-width: 0;
+
     font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
-    
+
     background: #F7F8FA;
     color: #0E1726;
 }
+
+
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
 
 h1 {
     color: #00C65A;
@@ -17,90 +40,141 @@ p {
     margin: 0;
 }
 
-.icon{
+
+/* =========================================
+   ICONS
+   ========================================= */
+
+.icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
     object-fit: contain;
 }
 
-.icon-sm{
+.icon-sm {
     width: 18px;
     height: 18px;
 }
 
-.icon-md{
+.icon-md {
     width: 24px;
     height: 24px;
 }
 
-#scoreRoundbtn{
+
+/* =========================================
+   CALCULATE BUTTON
+   ========================================= */
+
+#scoreRoundbtn {
     background: var(--accent);
     color: white;
+
     border: none;
+
     padding: 12px 22px;
+
     border-radius: 10px;
+
     font-size: 15px;
     font-weight: 400;
+
     cursor: pointer;
+
     transition: var(--transition);
+
     display: flex;
     align-items: center;
+    justify-content: center;
+
     gap: 8px;
+
+    white-space: nowrap;
 }
 
-#scoreRoundbtn:hover{
+#scoreRoundbtn:hover {
     transform: translateY(-2px);
     opacity: 0.95;
 }
 
-#scoreRoundbtn:active{
+#scoreRoundbtn:active {
     transform: translateY(0);
 }
 
 
-.card{
-     background:#ffffff;
+/* =========================================
+   CARD
+   ========================================= */
 
-    border-radius:1px;
+.card {
+    width: 100%;
+    min-width: 0;
 
-    padding:20px;
+    background: #ffffff;
 
-    border:1px solid #e2e8f0;
+    border-radius: 12px;
 
-    box-shadow:0 3px 10px rgba(0,0,0,.04);
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .04);
 }
 
-.card h2{
+.card h2 {
     display: flex;
     align-items: center;
+
     gap: 10px;
+
     margin-top: 0;
     margin-bottom: 18px;
+
     font-size: 20px;
 }
 
-.secondary-btn{
+
+/* =========================================
+   SECONDARY BUTTON
+   ========================================= */
+
+.secondary-btn {
     background: #fff;
     color: #374151;
+
     border: 1px solid var(--border);
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
 }
 
-.secondary-btn:hover{
+.secondary-btn:hover {
     background: #f8fafc;
 }
 
-.fade-up{
-    opacity:0;
-    transform:translateY(20px);
-    animation:fadeUp .5s ease forwards;
+
+/* =========================================
+   ANIMATION
+   ========================================= */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+
+    animation: fadeUp .5s ease forwards;
 }
 
-@keyframes fadeUp{
+@keyframes fadeUp {
 
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 
 }

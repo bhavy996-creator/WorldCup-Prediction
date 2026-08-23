@@ -1,32 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Predict the cup - My Picks</title>
-    <link rel ="stylesheet" href="styles/style.css">
+
+    <link
+        rel="stylesheet"
+        href="styles/style.css">
+
 </head>
+
+
 <body>
-    
-    <div class="container">
-        <header class ="header">
-            <div class="logo">
-               
-            <h1> <img src="assets/icons/trophy.svg" alt="trophy" class="icon icon-md">
-                 World Cup Predictor</h1>
-            <p>Predict every match • Beat the AI</p>
+
+<div class="container">
+
+
+    <header class="header">
+
+        <div class="logo">
+
+            <h1>
+
+                <img
+                    src="assets/icons/trophy.svg"
+                    alt="Trophy"
+                    class="icon icon-md">
+
+                World Cup Predictor
+
+            </h1>
+
+            <p>
+                Predict every match • Beat the AI
+            </p>
 
         </div>
+
+
         <div class="profile">
-            <img src="assets/icons/user.svg" alt="user" class="icon icon-sm">
+
+            <img
+                src="assets/icons/user.svg"
+                alt="User"
+                class="icon icon-sm">
+
             <span id="playerDisplay"></span>
+
         </div>
 
-        </header>
-        <!-- Prediction Toolbar -->
-<section class="prediction-section">
+    </header>
 
-    <div class="toolbar">
+
+    <section class="toolbar">
+
+        <!-- LEFT SIDE -->
 
         <div class="toolbar-left">
 
@@ -42,6 +77,7 @@
 
             </div>
 
+
             <div class="progress-bar">
 
                 <div
@@ -53,6 +89,9 @@
 
         </div>
 
+
+
+        <!-- RIGHT SIDE -->
 
         <div class="toolbar-actions">
 
@@ -77,8 +116,8 @@
 
             </div>
 
-
-            <button id="scoreRoundbtn">
+            <button
+                id="scoreRoundbtn">
 
                 <img
                     src="assets/icons/trophy.svg"
@@ -91,7 +130,6 @@
 
             </button>
 
-
             <button
                 id="resetBtn"
                 class="secondary-btn">
@@ -102,232 +140,269 @@
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- TWO COLUMN DASHBOARD -->
-<div class="dashboard">
-
-    <!-- LEFT COLUMN -->
-    <main class="main-content">
-
-        <div id="board"></div>
+    </section>
+    <div class="dashboard">
 
 
-        <section
-            id="breakdownCard"
-            class="card">
-
-            <h2>
-
-                <img
-                    src="assets/icons/chart.svg"
-                    class="icon icon-sm"
-                    alt="Breakdown">
-
-                Match Breakdown
-
-            </h2>
-
-            <div id="breakdownList"></div>
-
-        </section>
-
-    </main>
+        <main class="main-content">
 
 
-    <!-- RIGHT COLUMN -->
-    <aside class="sidebar">
+            <!-- MATCH PREDICTIONS -->
 
-        <!-- Scoreboard -->
+            <section class="prediction-section">
 
-        <div
-            id="scoreboard"
-            class="scoreboard card">
+                <div id="board"></div>
 
-            <h2>
+            </section>
 
-                <img
-                    src="assets/icons/chart.svg"
-                    class="icon icon-sm"
-                    alt="Results">
+            <section
+                id="breakdownCard"
+                class="card">
 
-                Round Results
+                <h2>
 
-            </h2>
+                    <img
+                        src="assets/icons/chart.svg"
+                        class="icon icon-sm"
+                        alt="Breakdown">
 
+                    Match Breakdown
 
-            <div class="result-row">
-
-                <span>
-                    Your Score
-                </span>
-
-                <div class="score-value">
-
-                    <strong id="yourScore">
-                        0
-                    </strong>
-
-                    <span>
-                        pts
-                    </span>
-
-                </div>
-
-            </div>
+                </h2>
 
 
-            <div class="result-row">
+                <div id="breakdownList"></div>
 
-                <span>
-                    House Bot
-                </span>
-
-                <div class="score-value">
-
-                    <strong id="botScore">
-                        0
-                    </strong>
-
-                    <span>
-                        pts
-                    </span>
-
-                </div>
-
-            </div>
+            </section>
 
 
-            <div class="result-row winner">
-
-                <span>
-                    Winner
-                </span>
-
-                <strong id="winner">
-                    -
-                </strong>
-
-            </div>
-
-        </div>
+        </main>
 
 
-        <!-- Summary -->
-
-        <div
-            id="summary"
-            class="card">
-
-            <h2>
-                Round Summary
-            </h2>
-
-        </div>
+        <aside class="sidebar">
 
 
-        <!-- Leaderboard -->
-
-        <div
-            id="leaderboardCard"
-            class="leaderboard card">
-
-            <h2>
-                Leaderboard
-            </h2>
 
             <div
-                class="leaderboard-list"
-                id="leaderboard">
+                id="scoreboard"
+                class="scoreboard card">
+
+                <h2>
+
+                    <img
+                        src="assets/icons/chart.svg"
+                        class="icon icon-sm"
+                        alt="Results">
+
+                    Round Results
+
+                </h2>
+
+
+                <!-- Your Score -->
+
+                <div class="result-row">
+
+                    <span>
+                        Your Score
+                    </span>
+
+
+                    <div class="score-value">
+
+                        <strong id="yourScore">
+                            0
+                        </strong>
+
+                        <span>
+                            pts
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="result-row">
+
+                    <span>
+                        House Bot
+                    </span>
+
+
+                    <div class="score-value">
+
+                        <strong id="botScore">
+                            0
+                        </strong>
+
+                        <span>
+                            pts
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="result-row winner">
+
+                    <span>
+                        Winner
+                    </span>
+
+                    <strong id="winner">
+                        -
+                    </strong>
+
+                </div>
+
             </div>
 
-        </div>
+            <div
+                id="summary"
+                class="card">
 
+                <h2>
 
-        <!-- Standings -->
+                    <img
+                        src="assets/icons/chart.svg"
+                        class="icon icon-sm"
+                        alt="Summary">
 
-        <div
-            id="standingsCard"
-            class="standings card">
+                    Round Summary
 
-            <h2>
-                Group Standings
-            </h2>
-
-            <div class="table-wrapper">
-
-                <table id="standingsTable">
-
-                    <thead>
-
-                        <tr>
-
-                            <th>Pos</th>
-                            <th>Team</th>
-                            <th>P</th>
-                            <th>W</th>
-                            <th>D</th>
-                            <th>L</th>
-                            <th>GF</th>
-                            <th>GA</th>
-                            <th>GD</th>
-                            <th>Pts</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="standingsBody">
-                    </tbody>
-
-                </table>
+                </h2>
 
             </div>
 
-        </div>
 
 
-        <!-- Next Round -->
+            <div
+                id="leaderboardCard"
+                class="leaderboard card">
 
-        <section
-            id="nextRoundCard"
-            class="card">
+                <h2>
+                    Leaderboard
+                </h2>
 
-            <h2>
-                Next Round
-            </h2>
 
-            <div id="nextRound"></div>
+                <div
+                    class="leaderboard-list"
+                    id="leaderboard">
+                </div>
 
-        </section>
+            </div>
 
-    </aside>
+
+            <div
+                id="standingsCard"
+                class="standings card">
+
+                <h2>
+                    Group Standings
+                </h2>
+
+
+                <div class="table-wrapper">
+
+                    <table id="standingsTable">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Pos</th>
+
+                                <th>Team</th>
+
+                                <th>P</th>
+
+                                <th>W</th>
+
+                                <th>D</th>
+
+                                <th>L</th>
+
+                                <th>GF</th>
+
+                                <th>GA</th>
+
+                                <th>GD</th>
+
+                                <th>Pts</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="standingsBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <section
+                id="nextRoundCard"
+                class="card">
+
+                <h2>
+                    Next Round
+                </h2>
+
+
+                <div id="nextRound"></div>
+
+            </section>
+
+
+        </aside>
+
+
+    </div>
+
 
 </div>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        Independent learning project.
+        Not affiliated with or endorsed by FIFA.
+
+        Fixtures snapshot:
+        openfootball/worldcup.json (CC0-1.0).
+
     </div>
- 
 
-
-    <footer class="footer">
-        <div class="footer-content">
-        Independent learning project. Not affiliated with or endorsed by FIFA.
-        Fixtures snapshot: openfootball/worldcup.json (CC0-1.0).
-        </div>
-    </footer>
-    <script src ="server/data.js"></script>
-    <script src="server/tournament.js"></script>
-    <script src ="server/standings.js"></script>
-    <script src="server/predictions.js"></script>
-    <script src="server/leaderboard.js"></script>
-    <script src="server/bracket.js"></script>
-    <script src="server/summary.js"></script>
-    <script src="server/progress.js"></script>
-    <script src="server/status.js"></script>
-    <script src="server/breakdown.js"></script>
-    <script src="server/scoring.js"></script>
-    <script src ="server/script.js"></script>
+</footer>
+<script src="server/data.js"></script>
+<script src="server/tournament.js"></script>
+<script src="server/standings.js"></script>
+<script src="server/predictions.js"></script>
+<script src="server/leaderboard.js"></script>
+<script src="server/bracket.js"></script>
+<script src="server/summary.js"></script>
+<script src="server/progress.js"></script>
+<script src="server/status.js"></script>
+<script src="server/breakdown.js"></script>
+<script src="server/scoring.js"></script>
+<script src="server/script.js"></script>
 </body>
+
 </html>
