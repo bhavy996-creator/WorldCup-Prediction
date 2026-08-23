@@ -59,6 +59,10 @@ function renderFixtures(fixtures){
 
     fixtures.forEach((match, index) => {
 
+        if (!match.home || !match.away) {
+        return;
+    }
+
         //we get the bot prediction first
         const prediction = botPredict(match.home, match.away);
 
