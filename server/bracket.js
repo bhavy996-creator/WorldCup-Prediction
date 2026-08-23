@@ -14,55 +14,93 @@ function renderRound(fixtures, title) {
 
         card.innerHTML = `
 
-<div class="bracket-header">
+            <div class="bracket-header">
 
-    ${title} ${index + 1}
+                ${title} ${index + 1}
 
-</div>
+            </div>
 
+            <div class="next-team home">
 
-<div class="next-team home">
+                <img
+                    src="assets/flags/${match.home.toLowerCase()}.svg"
+                    class="flag"
+                    alt="${match.home}">
 
-    <img
-        src="assets/flags/${match.home.toLowerCase()}.svg"
-        class="flag"
-        alt="${match.home}">
+                <span class="next-team-name">
 
-    <span class="next-team-name">
+                    ${match.home}
 
-        ${match.home}
+                </span>
 
-    </span>
+            </div>
 
-</div>
+            <div class="vs-divider">
 
+                <span>VS</span>
 
-<div class="vs-divider">
+            </div>
 
-    <span>VS</span>
+            <div class="next-team away">
 
-</div>
+                <img
+                    src="assets/flags/${match.away.toLowerCase()}.svg"
+                    class="flag"
+                    alt="${match.away}">
 
+                <span class="next-team-name">
 
-<div class="next-team away">
+                    ${match.away}
 
-    <img
-        src="assets/flags/${match.away.toLowerCase()}.svg"
-        class="flag"
-        alt="${match.away}">
+                </span>
 
-    <span class="next-team-name">
+            </div>
 
-        ${match.away}
-
-    </span>
-
-</div>
-
-`;
+        `;
 
         container.appendChild(card);
 
     });
+
+    // START NEXT ROUND BUTTON
+   const action = document.createElement("div");
+
+    action.className = "next-round-action";
+
+    action.innerHTML = `
+
+        <div class="next-round-message">
+
+            <strong>${title} are ready</strong>
+
+            <span>
+                Analyse the matchups and start the round when you're ready.
+            </span>
+
+        </div>
+
+        <button
+            id="startNextRoundBtn"
+            class="start-next-round-btn">
+
+            Start ${title}
+
+        </button>
+
+    `;
+
+    container.appendChild(action);
+
+    // BUTTON EVENT
+      document
+        .getElementById("startNextRoundBtn")
+        .addEventListener("click", () => {
+
+            startRound(
+                Tournament.nextFixtures,
+                Tournament.nextRoundKey
+            );
+
+        });
 
 }

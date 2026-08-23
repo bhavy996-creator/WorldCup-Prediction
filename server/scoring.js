@@ -204,25 +204,25 @@ if (!nextRoundKey) {
 }
 else {
 
-    // ================================
     // GENERATE NEXT ROUND
-    // ================================
-
     const nextRound =
         generateRound(predictions);
 
     Tournament.rounds[nextRoundKey] =
         nextRound;
 
-    // Move to next round
-    setTimeout(() => {
+    // Store the next round temporarily
+    Tournament.nextFixtures =
+        nextRound;
 
-        startRound(
-            nextRound,
-            nextRoundKey
-        );
+    Tournament.nextRoundKey =
+        nextRoundKey;
 
-    }, 1500);
+    // Show next round preview
+    renderRound(
+        nextRound,
+        ROUND_TITLES[nextRoundKey]
+    );
 
 }
 

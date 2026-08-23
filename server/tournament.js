@@ -3,6 +3,9 @@ const Tournament = {
     currentRound: "round32",
     currentFixtures: [],
 
+    nextRoundKey: null,
+    nextFixtures: [],
+
     rounds: {
 
         round32: [],
