@@ -177,7 +177,9 @@ const predictions = predictionData.predictions;
         renderStandings(sortedTeams);
 
         // Next Round
-        Tournament.rounds[Tournament.currentRound] = predictions;
+
+
+Tournament.rounds[Tournament.currentRound] = predictions;
 
 const currentRound =
     Tournament.currentRound;
@@ -186,35 +188,43 @@ const nextRoundKey =
     getNextRound(currentRound);
 
 
-// No next round = Tournament is complete
-if(!nextRoundKey){
+// TOURNAMENT COMPLETE
+
+
+if (!nextRoundKey) {
 
     const champion =
         completeTournament(predictions);
 
     renderChampion(champion);
 
-    return;
+    // Mark tournament as completed
+    Tournament.champion = champion;
 
 }
+else {
 
-// Generate the next fixtures
-const nextRound =
-    generateRound(predictions);
+    // ================================
+    // GENERATE NEXT ROUND
+    // ================================
 
-// Save them
-Tournament.rounds[nextRoundKey] =
-    nextRound;
+    const nextRound =
+        generateRound(predictions);
 
-// Move to the next round
-setTimeout(() => {
+    Tournament.rounds[nextRoundKey] =
+        nextRound;
 
-    startRound(
-        nextRound,
-        nextRoundKey
-    );
+    // Move to next round
+    setTimeout(() => {
 
-}, 1500);
+        startRound(
+            nextRound,
+            nextRoundKey
+        );
+
+    }, 1500);
+
+}
 
         // Summary
         const summary = calculateSummary(predictions);

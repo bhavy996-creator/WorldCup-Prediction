@@ -101,3 +101,45 @@
     background:#E5E7EB;
 
 }
+
+.champion-card {
+
+    text-align: center;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background: #fff;
+
+}
+
+.champion-trophy {
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+
+}
+
+.champion-label {
+
+    font-size: 14px;
+
+    color: var(--secondary);
+
+    margin-bottom: 6px;
+
+}
+
+.champion-name {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #16A34A;
+
+}

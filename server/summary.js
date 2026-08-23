@@ -1,4 +1,4 @@
-function calculateSummary(predictions){
+function calculateSummary(predictions) {
 
     const summary = {
         exact: 0,
@@ -14,8 +14,9 @@ function calculateSummary(predictions){
         const actual =
             RESULTS[key];
 
-        // No real result available yet
-        if(!actual){
+        // No actual result available
+        // for dynamically generated knockout rounds
+        if (!actual) {
             return;
         }
 
@@ -28,22 +29,23 @@ function calculateSummary(predictions){
         const actualResult =
             resultOf(actual);
 
-        if(
+
+        if (
             prediction.homeScore === actual.home &&
             prediction.awayScore === actual.away
-        ){
+        ) {
 
             summary.exact++;
 
         }
-
-        else if(predictedResult === actualResult){
+        else if (
+            predictedResult === actualResult
+        ) {
 
             summary.correct++;
 
         }
-
-        else{
+        else {
 
             summary.wrong++;
 

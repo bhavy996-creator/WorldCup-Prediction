@@ -4,16 +4,18 @@ function renderBreakdown(predictions) {
 
     container.innerHTML = "";
 
-    predictions.forEach((prediction) => {
+predictions.forEach((prediction) => {
 
-        const resultKey =
-            prediction.home + "|" + prediction.away;
+    const resultKey =
+        prediction.home + "|" + prediction.away;
 
-const actual = RESULTS[resultKey];
+    const actual =
+        RESULTS[resultKey];
 
-if(!actual){
-    return;
-}
+    // No actual result for this knockout round
+    if (!actual) {
+        return;
+    }
 
 const points = scorePick(
     {

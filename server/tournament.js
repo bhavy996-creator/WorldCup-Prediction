@@ -1,6 +1,7 @@
 const Tournament = {
 
     currentRound: "round32",
+    currentFixtures: [],
 
     rounds: {
 
@@ -82,4 +83,51 @@ function getNextRound(currentRound){
 
     return null;
 
+}
+
+function completeTournament(predictions) {
+
+    if (!predictions || predictions.length === 0) {
+        return null;
+    }
+
+    const finalMatch = predictions[0];
+
+    const champion =
+        getWinner(finalMatch);
+
+    Tournament.champion = champion;
+
+    return champion;
+}
+
+
+function renderChampion(champion) {
+
+    const container =
+        document.getElementById("nextRound");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = `
+
+        <div class="champion-card">
+
+            <div class="champion-trophy">
+                🏆
+            </div>
+
+            <div class="champion-label">
+                Your Predicted Champion
+            </div>
+
+            <div class="champion-name">
+                ${champion || "Unknown"}
+            </div>
+
+        </div>
+
+    `;
 }
