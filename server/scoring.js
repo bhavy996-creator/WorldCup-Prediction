@@ -232,6 +232,8 @@ else {
 
         renderBreakdown(predictions);
 
+        renderPredictionSummary(predictions);
+
         lockPredictionCards(predictions);
 
         revealResultCards();

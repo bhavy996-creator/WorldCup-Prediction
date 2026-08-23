@@ -23,190 +23,290 @@
         </div>
 
         </header>
-        <div class="dashboard">
-            <main class ="main-content">
+        <!-- Prediction Toolbar -->
+<section class="prediction-section">
 
-<section class="prediction-section">              
-                
-                <div class="toolbar">
+    <div class="toolbar">
 
-    <div class="toolbar-left">
+        <div class="toolbar-left">
 
-        <div class="round-title">
+            <div class="round-title">
 
-            <span id="roundName">
-                Round of 32
-            </span>
+                <span id="roundName">
+                    Round of 32
+                </span>
 
-            <span id="progressText">
-                0 / 6
-            </span>
+                <span id="progressText">
+                    0 / 6
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill">
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="progress-bar">
+
+        <div class="toolbar-actions">
 
             <div
-                id="progressFill"
-                class="progress-fill">
+                id="validationMessage"
+                class="validation-message">
             </div>
+
+
+            <div
+                id="lockBanner"
+                class="lock-banner hidden">
+
+                <img
+                    src="assets/icons/lock.svg"
+                    class="icon icon-sm"
+                    alt="Locked">
+
+                <span>
+                    Predictions Locked
+                </span>
+
+            </div>
+
+
+            <button id="scoreRoundbtn">
+
+                <img
+                    src="assets/icons/trophy.svg"
+                    class="icon icon-sm"
+                    alt="Trophy">
+
+                <span>
+                    Calculate Results
+                </span>
+
+            </button>
+
+
+            <button
+                id="resetBtn"
+                class="secondary-btn">
+
+                Reset
+
+            </button>
 
         </div>
 
     </div>
 
-    <div class="toolbar-actions">
+</section>
+
+
+<!-- TWO COLUMN DASHBOARD -->
+<div class="dashboard">
+
+    <!-- LEFT COLUMN -->
+    <main class="main-content">
+
+        <div id="board"></div>
+
+
+        <section
+            id="breakdownCard"
+            class="card">
+
+            <h2>
+
+                <img
+                    src="assets/icons/chart.svg"
+                    class="icon icon-sm"
+                    alt="Breakdown">
+
+                Match Breakdown
+
+            </h2>
+
+            <div id="breakdownList"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RIGHT COLUMN -->
+    <aside class="sidebar">
+
+        <!-- Scoreboard -->
 
         <div
-            id="validationMessage"
-            class="validation-message">
-        </div>
+            id="scoreboard"
+            class="scoreboard card">
 
-        <div id="lockBanner" class="lock-banner hidden">
+            <h2>
 
-    <img
-        src="assets/icons/lock.svg"
-        class="icon icon-sm"
-        alt="Locked">
+                <img
+                    src="assets/icons/chart.svg"
+                    class="icon icon-sm"
+                    alt="Results">
 
-    <span>Predictions Locked</span>
+                Round Results
 
-</div>
-
-        <button id="scoreRoundbtn">
-
-            <img
-                src="assets/icons/trophy.svg"
-                class="icon icon-sm"
-                alt="Trophy">
-
-            <span>Calculate Results</span>
-
-        </button>
-
-        <button
-            id="resetBtn"
-            class="secondary-btn">
-
-            Reset
-
-        </button>
-
-    </div>
-
-</div>
-    <div id="board"></div>
-
-</section>
-
-<section id="breakdownCard" class="card">
-
-    <h2>
-
-        <img
-            src="assets/icons/chart.svg"
-            class="icon icon-sm"
-            alt="Breakdown">
-
-        Match Breakdown
-
-    </h2>
-
-    <div id="breakdownList"></div>
-
-</section>
+            </h2>
 
 
-            </main>
-            <aside class="sidebar">
+            <div class="result-row">
 
-                <!-- Scoreboard -->
-               <div id ="scoreboard" class ="scoreboard card">
-        <h2>
-                <img src="assets/icons/chart.svg"
-         class="icon icon-sm"
-         alt="Results">
-         Round Results
-        </h2>
-        <div class="result-row">
-            <span>Your Score</span>
-            <div class="score-value">
-                <strong id="yourScore">0</strong>
-                <span>pts</span>
+                <span>
+                    Your Score
+                </span>
+
+                <div class="score-value">
+
+                    <strong id="yourScore">
+                        0
+                    </strong>
+
+                    <span>
+                        pts
+                    </span>
+
+                </div>
+
             </div>
-        </div>
-        
-        <div class="result-row">
-            <span>House Bot</span>
-            <div class="score-value">
-                <strong id ="botScore">0</strong>
-                <span>pts</span>
+
+
+            <div class="result-row">
+
+                <span>
+                    House Bot
+                </span>
+
+                <div class="score-value">
+
+                    <strong id="botScore">
+                        0
+                    </strong>
+
+                    <span>
+                        pts
+                    </span>
+
+                </div>
+
             </div>
-            
+
+
+            <div class="result-row winner">
+
+                <span>
+                    Winner
+                </span>
+
+                <strong id="winner">
+                    -
+                </strong>
+
+            </div>
+
         </div>
 
-        <div class="result-row winner">
-            <span>Winner</span>
-            <strong id="winner">-</strong>
+
+        <!-- Summary -->
+
+        <div
+            id="summary"
+            class="card">
+
+            <h2>
+                Round Summary
+            </h2>
+
         </div>
-    </div>
-
-    <! -- Summary -- >
-    <div id="summary" class="card">
-        <h2>Round Summary</h2>
-    </div>
 
 
-            <!-- Leaderboard -->
-             <div id="leaderboardCard" class="leaderboard card">
-<h2>Leaderboard</h2>
+        <!-- Leaderboard -->
 
+        <div
+            id="leaderboardCard"
+            class="leaderboard card">
 
+            <h2>
+                Leaderboard
+            </h2>
 
-<div class="leaderboard-list" id="leaderboard">
+            <div
+                class="leaderboard-list"
+                id="leaderboard">
+            </div>
 
-</div>
-</div>
-
-
-            <!-- Standings -->
-             <div id="standingsCard"  class="standings card">
-<h2>Group Standings</h2>
-<div class="table-wrapper">
-<table id ="standingsTable">
-    <thead>
-        <tr>
-            <th>Pos</th>
-            <th>Team</th>
-            <th>P</th>
-            <th>W</th>
-            <th>D</th>
-            <th>L</th>
-            <th>GF</th>
-            <th>GA</th>
-            <th>GD</th>
-            <th>Pts</th>
-        </tr>
-    </thead>
-    <tbody id ="standingsBody">
-
-    </tbody>
-</table>
-</div>
-</div>
-
-
-            <!-- Next Round -->
-
-            <section id="nextRoundCard" class= "card">
-    <h2>Next Round</h2>
-    
-    <div id="nextRound"></div>
-        
-</section>
-
-            </aside>
         </div>
+
+
+        <!-- Standings -->
+
+        <div
+            id="standingsCard"
+            class="standings card">
+
+            <h2>
+                Group Standings
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table id="standingsTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Pos</th>
+                            <th>Team</th>
+                            <th>P</th>
+                            <th>W</th>
+                            <th>D</th>
+                            <th>L</th>
+                            <th>GF</th>
+                            <th>GA</th>
+                            <th>GD</th>
+                            <th>Pts</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="standingsBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Next Round -->
+
+        <section
+            id="nextRoundCard"
+            class="card">
+
+            <h2>
+                Next Round
+            </h2>
+
+            <div id="nextRound"></div>
+
+        </section>
+
+    </aside>
+
+</div>
     </div>
  
 

@@ -144,3 +144,98 @@
     color: #64748B;
 
 }
+
+.prediction-summary {
+
+    margin-top: 18px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+}
+
+
+.prediction-summary-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.prediction-summary-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.prediction-summary-text strong {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #1E293B;
+
+}
+
+
+.prediction-summary-text span {
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #64748B;
+
+}
+
+
+.predicted-champion {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    background: #F0FDF4;
+
+    border: 1px solid #BBF7D0;
+
+    color: #15803D;
+
+    white-space: nowrap;
+
+}
+
+
+.champion-icon {
+
+    font-size: 18px;
+
+}
+
+.prediction-section {
+    width: 100%;
+    margin-bottom: 24px;
+}

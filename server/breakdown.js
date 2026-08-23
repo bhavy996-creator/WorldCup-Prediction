@@ -14,11 +14,6 @@ function renderBreakdown(predictions) {
         const actual =
             RESULTS[resultKey];
 
-
-        // ========================================
-        // ACTUAL RESULT AVAILABLE
-        // ========================================
-
         if (actual) {
 
             const points =
@@ -182,11 +177,6 @@ function renderBreakdown(predictions) {
 
         }
 
-
-        // ========================================
-        // PREDICTION-ONLY KNOCKOUT ROUND
-        // ========================================
-
         else {
 
             const predictedWinner =
@@ -287,5 +277,136 @@ function renderBreakdown(predictions) {
         }
 
     });
+
+}
+
+function renderPredictionSummary(predictions) {
+
+    const breakdownCard =
+        document.getElementById("breakdownCard");
+
+    if (!breakdownCard) return;
+
+
+    // Remove previous summary if it exists
+    const oldSummary =
+        document.getElementById("predictionSummary");
+
+    if (oldSummary) {
+        oldSummary.remove();
+    }
+
+
+    const round =
+        Tournament.currentRound;
+
+
+    // R32 does not need this section
+    if (round === "round32") {
+        return;
+    }
+
+
+    let title = "";
+    let message = "";
+    let extraContent = "";
+
+
+    if (round === "quarterFinals") {
+
+        title = "Quarter Final Predictions";
+
+        message =
+            "Your quarter-final predictions have been recorded. Analyse the matchups and continue when you're ready.";
+
+    }
+
+
+    else if (round === "semiFinals") {
+
+        title = "Semi Final Predictions";
+
+        message =
+            "Your semifinal predictions have been recorded. Results will be available after the matches are played.";
+
+    }
+
+
+    else if (round === "final") {
+
+        title = "Final Prediction";
+
+        const finalPrediction =
+            predictions[0];
+
+        if (finalPrediction) {
+
+            const champion =
+                finalPrediction.homeScore >
+                finalPrediction.awayScore
+                    ? finalPrediction.home
+                    : finalPrediction.away;
+
+            extraContent = `
+
+                <div class="predicted-champion">
+
+                    <span class="champion-icon">
+                        🏆
+                    </span>
+
+                    <strong>
+                        ${champion}
+                    </strong>
+
+                </div>
+
+            `;
+
+            message =
+                "Your final prediction has been recorded. Awaiting the final result.";
+
+        }
+
+    }
+
+
+    if (!title) return;
+
+
+    const summary =
+        document.createElement("div");
+
+    summary.id =
+        "predictionSummary";
+
+    summary.className =
+        "prediction-summary";
+
+
+    summary.innerHTML = `
+
+        <div class="prediction-summary-content">
+
+            <div class="prediction-summary-text">
+
+                <strong>
+                    ${title}
+                </strong>
+
+                <span>
+                    ${message}
+                </span>
+
+            </div>
+
+            ${extraContent}
+
+        </div>
+
+    `;
+
+
+    breakdownCard.appendChild(summary);
 
 }
