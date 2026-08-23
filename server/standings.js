@@ -10,7 +10,11 @@ const FLAGS = {
     Argentina: "assets/flags/argentina.svg",
     Mexico: "assets/flags/mexico.svg",
     Switzerland: "assets/flags/switzerland.svg",
-    France: "assets/flags/france.svg"
+    France: "assets/flags/france.svg",
+    Italy: "assets/flags/italy.svg",
+    Croatia: "assets/flags/croatia.svg",
+    Morocco: "assets/flags/morocco.svg",
+    Belgium: "assets/flags/belgium.svg"
 };
 
 function getFlag(teamName) {
