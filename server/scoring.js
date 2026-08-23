@@ -179,10 +179,6 @@ const predictions = predictionData.predictions;
         // Next Round
         Tournament.rounds[Tournament.currentRound] = predictions;
 
-// ========================================
-// GENERATE NEXT TOURNAMENT ROUND
-// ========================================
-
 const currentRound =
     Tournament.currentRound;
 
@@ -202,16 +198,13 @@ if(!nextRoundKey){
 
 }
 
-
 // Generate the next fixtures
 const nextRound =
-    generateNextRound(predictions);
-
+    generateRound(predictions);
 
 // Save them
 Tournament.rounds[nextRoundKey] =
     nextRound;
-
 
 // Move to the next round
 setTimeout(() => {
@@ -219,14 +212,6 @@ setTimeout(() => {
     startRound(
         nextRound,
         nextRoundKey
-    );
-
-}, 1500);
-setTimeout(() => {
-
-    startRound(
-        Tournament.rounds.quarterFinals,
-        "quarterFinals"
     );
 
 }, 1500);
