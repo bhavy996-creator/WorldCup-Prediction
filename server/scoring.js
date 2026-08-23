@@ -180,6 +180,7 @@ const predictions = predictionData.predictions;
 
 
 Tournament.rounds[Tournament.currentRound] = predictions;
+saveTournamentState();
 
 const currentRound =
     Tournament.currentRound;
@@ -200,6 +201,8 @@ if (!nextRoundKey) {
 
     // Mark tournament as completed
     Tournament.champion = champion;
+    saveTournamentState();
+    renderChampion(champion);
 
 }
 else {
@@ -217,6 +220,8 @@ else {
 
     Tournament.nextRoundKey =
         nextRoundKey;
+
+        saveTournamentState();
 
     // Show next round preview
     renderRound(
@@ -266,6 +271,8 @@ else {
 }
 
 function resetRound() {
+
+    resetTournamentState();
 
     localStorage.removeItem("predictions_round32");
     localStorage.removeItem("predictions_quarterFinals");

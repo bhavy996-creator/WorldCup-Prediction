@@ -1,49 +1,37 @@
 const KEY = "bhavy_predict_v1";
-
 const LEAGUE_AVG = 1.4;
 
-//adding the localstorage method for saving users info
 let playerName = localStorage.getItem("playerName");
-document.getElementById("playerDisplay").textContent = playerName;
 
 if(!playerName){
     playerName = prompt("Enter your name: ");
-    
+
     if(playerName){
         localStorage.setItem("playerName", playerName);
-    }
-    else{
+    }else{
         playerName = "Guest";
     }
 }
 
-function botPredict(home, away) {
+document.getElementById("playerDisplay").textContent = playerName;
 
+function botPredict(home, away){
     const h = strength[home];
     const a = strength[away];
 
-    if (!h || !a) {
-
+    if(!h || !a){
         return "0-0";
-
     }
 
-    const lambdaHome =
-        h.attack * (a.defense / LEAGUE_AVG);
+    const lambdaHome = h.attack * (a.defense / LEAGUE_AVG);
+    const lambdaAway = a.attack * (h.defense / LEAGUE_AVG);
 
-    const lambdaAway =
-        a.attack * (h.defense / LEAGUE_AVG);
-
-    return (
-        Math.round(lambdaHome) +
-        "-" +
-        Math.round(lambdaAway)
-    );
-
+    return Math.round(lambdaHome) + "-" + Math.round(lambdaAway);
 }
 
 function formatDate(dateString){
     const date = new Date(dateString);
+
     return date.toLocaleDateString("en-GB", {
         day: "numeric",
         month: "short",
@@ -52,156 +40,201 @@ function formatDate(dateString){
 }
 
 function renderFixtures(fixtures){
-    
     const board = document.getElementById("board");
 
-    board.innerHTML = "";   //clear the board before entering the data, this helps in preventing duplicate data
+    board.innerHTML = "";
 
     fixtures.forEach((match, index) => {
 
-        if (!match.home || !match.away) {
-        return;
-    }
+        if(!match.home || !match.away){
+            return;
+        }
 
-        //we get the bot prediction first
         const prediction = botPredict(match.home, match.away);
 
-        //then we will create the match card
         const card = document.createElement("div");
+
         card.className = "match";
         card.setAttribute("data-match", index);
 
         card.innerHTML = `
-    <div class="match-header">
+            <div class="match-header">
 
-        <span class="round">${match.round || ROUND_TITLES[Tournament.currentRound]}</span>
+                <span class="round">
+                    ${match.round || ROUND_TITLES[Tournament.currentRound]}
+                </span>
 
-        <div class ="date">
-        <img src ="assets/icons/calendar.svg"
-        class = "icon-sm"
-        alt = "Calendar">
+                <div class="date">
 
-        <span>${match.date ? formatDate(match.date) : "Upcoming"}</span>
+                    <img
+                        src="assets/icons/calendar.svg"
+                        class="icon-sm"
+                        alt="Calendar">
 
-    </div>
-    </div>
+                    <span>
+                        ${match.date ? formatDate(match.date) : "Upcoming"}
+                    </span>
 
-    <div class="fixture-row">
+                </div>
 
-    <div class="team home-team">
-    <img src="assets/flags/${match.home.toLowerCase()}.svg"
-    class ="flag"
-    alt="${match.home}"
-    >
+            </div>
 
-        <span class="team-name">
-            ${match.home}
-        </span>
+            <div class="fixture-row">
 
-    </div>
+                <div class="team home-team">
 
-    <div class="score-inputs">
+                    <img
+                        src="assets/flags/${match.home.toLowerCase()}.svg"
+                        class="flag"
+                        alt="${match.home}">
 
-        <input type="number" placeholder="0">
+                    <span class="team-name">
+                        ${match.home}
+                    </span>
 
-        <img
-        src="assets/icons/football.svg"
-        class="icon icon-sm"
-        alt="Football"
-        >
+                </div>
 
-        
+                <div class="score-inputs">
 
-        <input type="number" placeholder="0">
+                    <input
+                        type="number"
+                        placeholder="0">
 
-    </div>
+                    <img
+                        src="assets/icons/football.svg"
+                        class="icon icon-sm"
+                        alt="Football">
 
-    <div class="locked-score hidden">
+                    <input
+                        type="number"
+                        placeholder="0">
 
-    <span class="locked-home"></span>
+                </div>
 
-    <img
-        src="assets/icons/football.svg"
-        class="icon icon-sm"
-        alt="Football">
+                <div class="locked-score hidden">
 
-    <span class="locked-away"></span>
+                    <span class="locked-home"></span>
 
-</div>
+                    <img
+                        src="assets/icons/football.svg"
+                        class="icon icon-sm"
+                        alt="Football">
 
-    <div class="team away-team">
-    
+                    <span class="locked-away"></span>
 
-        <span class="team-name">
-            ${match.away}
-        </span>
-        <img
-        src="assets/flags/${match.away.toLowerCase()}.svg"
-        class="flag"
-        alt="${match.away}">
+                </div>
 
-    </div>
+                <div class="team away-team">
 
-    </div>
+                    <span class="team-name">
+                        ${match.away}
+                    </span>
 
-    <div class="prediction">
-    <div class="prediction-label">
-    <img
-    src="assets/icons/robot.svg"
-    class="icon icon-sm"
-    alt="Robot">
+                    <img
+                        src="assets/flags/${match.away.toLowerCase()}.svg"
+                        class="flag"
+                        alt="${match.away}">
 
-        <span>AI Prediction</span>
-        </div>
+                </div>
 
+            </div>
 
-        <strong>${prediction}</strong>
+            <div class="prediction">
 
-    </div>
+                <div class="prediction-label">
 
-    <div class="match-status" id="status-${index}"></div>
-`;
+                    <img
+                        src="assets/icons/robot.svg"
+                        class="icon icon-sm"
+                        alt="Robot">
 
-        //adding the card to board
+                    <span>
+                        AI Prediction
+                    </span>
+
+                </div>
+
+                <strong>
+                    ${prediction}
+                </strong>
+
+            </div>
+
+            <div
+                class="match-status"
+                id="status-${index}">
+            </div>
+        `;
+
         board.appendChild(card);
     });
 }
 
-function bindEvents() {
+function bindEvents(){
 
-    document
-        .getElementById("scoreRoundbtn")
-        .addEventListener("click", scoreRound);
+    const scoreButton =
+        document.getElementById("scoreRoundbtn");
 
-    document
-        .getElementById("resetBtn")
-        .addEventListener("click", resetRound);
+    const resetButton =
+        document.getElementById("resetBtn");
+
+    scoreButton.onclick = scoreRound;
+    resetButton.onclick = resetRound;
 
     const inputs =
         document.querySelectorAll(".score-inputs input");
 
     inputs.forEach(input => {
-
-        input.addEventListener(
-            "input",
-            updateProgress
-        );
-
+        input.addEventListener("input", updateProgress);
     });
-
 }
-
-
 
 function initializeApp(){
-    Tournament.currentFixtures = FIXTURES;
-    renderFixtures(FIXTURES);
+
+    const restored =
+        loadTournamentState();
+
+    if(restored && Tournament.champion){
+
+        document.getElementById("roundName").textContent =
+            "Tournament Complete";
+
+        document.getElementById("progressText").textContent =
+            "Champion";
+
+        document.getElementById("progressFill").style.width =
+            "100%";
+
+        renderChampion(Tournament.champion);
+
+        return;
+    }
+
+    if(restored && Tournament.currentFixtures.length > 0){
+
+        startRound(
+            Tournament.currentFixtures,
+            Tournament.currentRound
+        );
+
+    }else{
+
+        Tournament.currentRound = "round32";
+        Tournament.currentFixtures = FIXTURES;
+
+        startRound(
+            FIXTURES,
+            "round32"
+        );
+
+        saveTournamentState();
+    }
+
     hideResultCards();
-    restorePrediction();
     bindEvents();
     updateProgress();
-
 }
+
 initializeApp();
 
 window.addEventListener("scroll", () => {
@@ -209,16 +242,12 @@ window.addEventListener("scroll", () => {
     const toolbar =
         document.querySelector(".toolbar");
 
+    if(!toolbar) return;
+
     if(window.scrollY > 120){
-
         toolbar.classList.add("compact");
-
-    }
-
-    else{
-
+    }else{
         toolbar.classList.remove("compact");
-
     }
 
 });
@@ -226,54 +255,52 @@ window.addEventListener("scroll", () => {
 function hideResultCards(){
 
     const cards = [
-
         "scoreboard",
         "summary",
         "leaderboardCard",
         "standingsCard",
         "nextRoundCard",
         "breakdownCard"
-
     ];
 
-    cards.forEach(id=>{
+    cards.forEach(id => {
 
-        document
-            .getElementById(id)
-            .classList.add("fade-hidden");
+        const card =
+            document.getElementById(id);
+
+        if(card){
+            card.classList.add("fade-hidden");
+        }
 
     });
-
 }
 
 function revealResultCards(){
 
     const cards = [
-
         "scoreboard",
         "summary",
         "leaderboardCard",
         "standingsCard",
         "nextRoundCard",
         "breakdownCard"
-
     ];
 
-    cards.forEach((id,index)=>{
+    cards.forEach((id,index) => {
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             const card =
                 document.getElementById(id);
 
-            card.classList.remove("fade-hidden");
+            if(!card) return;
 
+            card.classList.remove("fade-hidden");
             card.classList.add("fade-show");
 
-        },index*220);
+        }, index * 220);
 
     });
-
 }
 
 function startRound(fixtures, roundKey){
@@ -284,11 +311,11 @@ function startRound(fixtures, roundKey){
     document.getElementById("roundName").textContent =
         ROUND_TITLES[roundKey];
 
- document.getElementById("progressText").textContent =
-    `0 / ${fixtures.length}`;
+    document.getElementById("progressText").textContent =
+        `0 / ${fixtures.length}`;
 
-document.getElementById("progressFill").style.width =
-    "0%";
+    document.getElementById("progressFill").style.width =
+        "0%";
 
     renderFixtures(fixtures);
 
@@ -298,4 +325,10 @@ document.getElementById("progressFill").style.width =
 
     updateProgress();
 
+    saveTournamentState();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
