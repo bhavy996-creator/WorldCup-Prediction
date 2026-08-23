@@ -14,8 +14,8 @@ function calculateSummary(predictions) {
         const actual =
             RESULTS[key];
 
-        // No actual result available
-        // for dynamically generated knockout rounds
+        // Later knockout rounds do not have
+        // actual results in our current dataset.
         if (!actual) {
             return;
         }
@@ -38,6 +38,7 @@ function calculateSummary(predictions) {
             summary.exact++;
 
         }
+
         else if (
             predictedResult === actualResult
         ) {
@@ -45,6 +46,7 @@ function calculateSummary(predictions) {
             summary.correct++;
 
         }
+
         else {
 
             summary.wrong++;
@@ -56,9 +58,11 @@ function calculateSummary(predictions) {
     return summary;
 }
 
-function renderSummary(summary){
 
-    const container = document.getElementById("summary");
+function renderSummary(summary) {
+
+    const container =
+        document.getElementById("summary");
 
     const total =
         summary.exact +
@@ -66,40 +70,70 @@ function renderSummary(summary){
         summary.wrong;
 
     const accuracy =
-    total === 0
-    ? 0 :
-        Math.round(
-            ((summary.exact + summary.correct) / total) * 100
-        );
+        total === 0
+            ? 0
+            : Math.round(
+                ((summary.exact + summary.correct) / total) * 100
+            );
+
 
     container.innerHTML = `
+
         <h2>
-        <img 
-        src="assets/icons/chart.svg"
-        class="icon icon-sm"
-        alt="Summary">
-        Round Summary</h2>
+
+            <img
+                src="assets/icons/chart.svg"
+                class="icon icon-sm"
+                alt="Summary">
+
+            Round Summary
+
+        </h2>
+
 
         <div class="result-row">
+
             <span>Exact Scores</span>
-            <strong>${summary.exact}</strong>
+
+            <strong>
+                ${summary.exact}
+            </strong>
+
         </div>
 
+
         <div class="result-row">
+
             <span>Correct Results</span>
-            <strong>${summary.correct}</strong>
+
+            <strong>
+                ${summary.correct}
+            </strong>
+
         </div>
 
+
         <div class="result-row">
+
             <span>Wrong Picks</span>
-            <strong>${summary.wrong}</strong>
+
+            <strong>
+                ${summary.wrong}
+            </strong>
+
         </div>
 
+
         <div class="result-row">
+
             <span>Accuracy</span>
-            <strong>${accuracy}%</strong>
+
+            <strong>
+                ${accuracy}%
+            </strong>
+
         </div>
+
     `;
 
 }
-
