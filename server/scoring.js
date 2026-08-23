@@ -179,24 +179,49 @@ const predictions = predictionData.predictions;
         // Next Round
         Tournament.rounds[Tournament.currentRound] = predictions;
 
-const nextRound = generateRound(predictions);
+// ========================================
+// GENERATE NEXT TOURNAMENT ROUND
+// ========================================
 
-const nextRoundKey =  getNextRound(Tournament.currentRound);
-if(nextRoundKey){
+const currentRound =
+    Tournament.currentRound;
 
-    Tournament.rounds[nextRoundKey] =
-        nextRound;
+const nextRoundKey =
+    getNextRound(currentRound);
 
-    setTimeout(() => {
 
-        startRound(
-            nextRound,
-            nextRoundKey
-        );
+// No next round = Tournament is complete
+if(!nextRoundKey){
 
-    }, 1500);
+    const champion =
+        completeTournament(predictions);
+
+    renderChampion(champion);
+
+    return;
 
 }
+
+
+// Generate the next fixtures
+const nextRound =
+    generateNextRound(predictions);
+
+
+// Save them
+Tournament.rounds[nextRoundKey] =
+    nextRound;
+
+
+// Move to the next round
+setTimeout(() => {
+
+    startRound(
+        nextRound,
+        nextRoundKey
+    );
+
+}, 1500);
 setTimeout(() => {
 
     startRound(

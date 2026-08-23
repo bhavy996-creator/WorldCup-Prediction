@@ -1,4 +1,9 @@
 const FIXTURES = [
+
+    // =========================
+    // ROUND OF 32
+    // =========================
+
     {
         home: "Germany",
         away: "Mexico",
@@ -12,33 +17,54 @@ const FIXTURES = [
         date: "2026-06-29",
         round: "R32"
     },
+
     {
         home: "France",
         away: "Portugal",
         date: "2026-06-30",
         round: "R32"
     },
+
     {
         home: "Spain",
         away: "Uruguay",
         date: "2026-07-01",
         round: "R32"
     },
+
     {
         home: "Brazil",
         away: "Japan",
         date: "2026-07-02",
         round: "R32"
     },
+
     {
         home: "England",
         away: "Netherlands",
         date: "2026-07-03",
         round: "R32"
+    },
+
+    {
+        home: "Italy",
+        away: "Belgium",
+        date: "2026-07-04",
+        round: "R32"
+    },
+
+    {
+        home: "Croatia",
+        away: "Morocco",
+        date: "2026-07-05",
+        round: "R32"
     }
+
 ];
 
+
 const strength = {
+
     Germany: {
         attack: 2.6,
         defense: 0.6
@@ -70,66 +96,98 @@ const strength = {
     },
 
     Mexico: {
-    attack: 1.2,
-    defense: 1.3
-},
+        attack: 1.2,
+        defense: 1.3
+    },
 
-Switzerland: {
-    attack: 1.1,
-    defense: 1.0
-},
+    Switzerland: {
+        attack: 1.1,
+        defense: 1.0
+    },
 
-Portugal: {
-    attack: 1.8,
-    defense: 0.9
-},
+    Portugal: {
+        attack: 1.8,
+        defense: 0.9
+    },
 
-Uruguay: {
-    attack: 1.4,
-    defense: 1.2
-},
+    Uruguay: {
+        attack: 1.4,
+        defense: 1.2
+    },
 
-Japan: {
-    attack: 1.3,
-    defense: 1.1
-},
+    Japan: {
+        attack: 1.3,
+        defense: 1.1
+    },
 
-Netherlands: {
-    attack: 1.7,
-    defense: 1.0
-}
+    Netherlands: {
+        attack: 1.7,
+        defense: 1.0
+    },
+
+    Italy: {
+        attack: 1.5,
+        defense: 1.2
+    },
+
+    Belgium: {
+        attack: 1.6,
+        defense: 1.1
+    },
+
+    Croatia: {
+        attack: 1.3,
+        defense: 1.1
+    },
+
+    Morocco: {
+        attack: 1.2,
+        defense: 1.3
+    }
+
 };
+
 
 const RESULTS = {
 
     "Germany|Mexico": {
-        home:2,
-        away:1
+        home: 2,
+        away: 1
     },
 
     "Argentina|Switzerland": {
-        home:2,
-        away:0
+        home: 2,
+        away: 0
     },
 
-    "France|Portugal":{
-        home:1,
-        away:1
+    "France|Portugal": {
+        home: 1,
+        away: 1
     },
 
-    "Spain|Uruguay":{
-        home:3,
-        away:1
+    "Spain|Uruguay": {
+        home: 3,
+        away: 1
     },
 
-    "Brazil|Japan":{
-        home:2,
-        away:0
+    "Brazil|Japan": {
+        home: 2,
+        away: 0
     },
 
-    "England|Netherlands":{
-        home:1,
-        away:2
+    "England|Netherlands": {
+        home: 1,
+        away: 2
+    },
+
+    "Italy|Belgium": {
+        home: 2,
+        away: 1
+    },
+
+    "Croatia|Morocco": {
+        home: 1,
+        away: 2
     }
 
 };

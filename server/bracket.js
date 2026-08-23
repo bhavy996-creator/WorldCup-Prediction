@@ -19,7 +19,8 @@ function generateNextRound(predictions){
 
     predictions.forEach((prediction) => {
 
-        const winner = getWinner(prediction);
+        const winner =
+            getWinner(prediction);
 
         if(winner){
             winners.push(winner);
@@ -31,35 +32,17 @@ function generateNextRound(predictions){
 
     for(let i = 0; i < winners.length; i += 2){
 
-        // Normal match
-        if(winners[i + 1]){
+        nextRound.push({
 
-            nextRound.push({
+            home: winners[i],
+            away: winners[i + 1]
 
-                home: winners[i],
-                away: winners[i + 1]
-
-            });
-
-        }
-
-        // If there is an odd number of winners,
-        // the last team gets a bye.
-        else{
-
-            nextRound.push({
-
-                home: winners[i],
-                away: null,
-                bye: true
-
-            });
-
-        }
+        });
 
     }
 
     return nextRound;
+
 }
 
 
