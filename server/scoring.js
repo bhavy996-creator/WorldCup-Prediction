@@ -9,30 +9,6 @@ function resultOf(score) {
     return "draw";
 }
 
-function getActualResult(prediction) {
-
-    const key =
-        prediction.home + "|" + prediction.away;
-
-    if (Tournament.currentRound === "round32") {
-        return RESULTS[key];
-    }
-
-    if (Tournament.currentRound === "quarterFinals") {
-        return KNOCKOUT_RESULTS.quarterFinals[key];
-    }
-
-    if (Tournament.currentRound === "semiFinals") {
-        return KNOCKOUT_RESULTS.semiFinals[key];
-    }
-
-    if (Tournament.currentRound === "final") {
-        return KNOCKOUT_RESULTS.final[key];
-    }
-
-    return null;
-}
-
 function scorePick(predicted, actual) {
     const myResult = resultOf(predicted);
     const trueResult = resultOf(actual);
@@ -51,7 +27,7 @@ function scorePick(predicted, actual) {
     return 0;
 }
 
-function scoreRound() {
+async function scoreRound() {
 
     const button = document.getElementById("scoreRoundbtn");
 
@@ -86,7 +62,7 @@ message.textContent = "";
         <span>Calculating...</span>
     `;
 
-    setTimeout(() => {
+    setTimeout(async () => {
 
         const predictionData = collectPredictions();
 
@@ -95,9 +71,22 @@ if (!predictionData.isComplete) {
     document.getElementById("validationMessage").textContent =
         "Please complete all match predictions.";
 
+            button.disabled = false;
+
+    button.innerHTML = `
+        <img
+            src="assets/icons/trophy.svg"
+            class="icon icon-sm"
+            alt="Trophy">
+
+        <span>Calculate Results</span>
+    `;
+
     return;
 
 }
+
+await fetchWorldCupFixtures();
 
 document.getElementById("validationMessage").textContent = "";
 

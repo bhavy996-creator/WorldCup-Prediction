@@ -332,3 +332,4 @@ function startRound(fixtures, roundKey){
         behavior: "smooth"
     });
 }
+
