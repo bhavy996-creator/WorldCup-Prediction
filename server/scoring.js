@@ -86,7 +86,7 @@ if (!predictionData.isComplete) {
 
 }
 
-await fetchWorldCupFixtures();
+await fetchWorldCupResults();
 
 document.getElementById("validationMessage").textContent = "";
 
