@@ -9,6 +9,30 @@ function resultOf(score) {
     return "draw";
 }
 
+function getActualResult(prediction) {
+
+    const key =
+        prediction.home + "|" + prediction.away;
+
+    if (Tournament.currentRound === "round32") {
+        return RESULTS[key];
+    }
+
+    if (Tournament.currentRound === "quarterFinals") {
+        return KNOCKOUT_RESULTS.quarterFinals[key];
+    }
+
+    if (Tournament.currentRound === "semiFinals") {
+        return KNOCKOUT_RESULTS.semiFinals[key];
+    }
+
+    if (Tournament.currentRound === "final") {
+        return KNOCKOUT_RESULTS.final[key];
+    }
+
+    return null;
+}
+
 function scorePick(predicted, actual) {
     const myResult = resultOf(predicted);
     const trueResult = resultOf(actual);
@@ -85,8 +109,7 @@ const predictions = predictionData.predictions;
 
         predictions.forEach((prediction, index) => {
 
-            const resultKey = prediction.home + "|" + prediction.away;
-            const actual = RESULTS[resultKey];
+            const actual = getActualResult(prediction);
             
             if(actual){
             const yourPoints = scorePick(

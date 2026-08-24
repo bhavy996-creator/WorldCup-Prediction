@@ -5,14 +5,10 @@ function renderBreakdown(predictions) {
 
     container.innerHTML = "";
 
-
-    predictions.forEach((prediction) => {
-
-        const resultKey =
-            prediction.home + "|" + prediction.away;
+    predictions.forEach(prediction => {
 
         const actual =
-            RESULTS[resultKey];
+            getActualResult(prediction);
 
         if (actual) {
 
@@ -25,10 +21,8 @@ function renderBreakdown(predictions) {
                     actual
                 );
 
-
             let statusText = "";
             let statusClass = "";
-
 
             if (points === 5) {
 
@@ -38,9 +32,7 @@ function renderBreakdown(predictions) {
                 statusClass =
                     "exact";
 
-            }
-
-            else if (points === 2) {
+            } else if (points === 2) {
 
                 statusText =
                     "Correct Winner • +2 pts";
@@ -48,9 +40,7 @@ function renderBreakdown(predictions) {
                 statusClass =
                     "correct";
 
-            }
-
-            else {
+            } else {
 
                 statusText =
                     "Prediction Missed • 0 pts";
@@ -60,13 +50,11 @@ function renderBreakdown(predictions) {
 
             }
 
-
             const card =
                 document.createElement("div");
 
             card.className =
                 "breakdown-item";
-
 
             card.innerHTML = `
 
@@ -85,11 +73,9 @@ function renderBreakdown(predictions) {
 
                     </div>
 
-
                     <span class="breakdown-vs">
                         VS
                     </span>
-
 
                     <div class="breakdown-team">
 
@@ -105,7 +91,6 @@ function renderBreakdown(predictions) {
                     </div>
 
                 </div>
-
 
                 <div class="score-comparison">
 
@@ -133,7 +118,6 @@ function renderBreakdown(predictions) {
 
                     </div>
 
-
                     <div class="comparison-block">
 
                         <span class="comparison-title">
@@ -160,37 +144,28 @@ function renderBreakdown(predictions) {
 
                 </div>
 
-
                 <div class="divider"></div>
 
-
                 <div class="breakdown-status ${statusClass}">
-
                     ${statusText}
-
                 </div>
 
             `;
 
-
             container.appendChild(card);
 
-        }
-
-        else {
+        } else {
 
             const predictedWinner =
                 prediction.homeScore > prediction.awayScore
                     ? prediction.home
                     : prediction.away;
 
-
             const card =
                 document.createElement("div");
 
             card.className =
                 "breakdown-item prediction-only";
-
 
             card.innerHTML = `
 
@@ -209,11 +184,9 @@ function renderBreakdown(predictions) {
 
                     </div>
 
-
                     <span class="breakdown-vs">
                         VS
                     </span>
-
 
                     <div class="breakdown-team">
 
@@ -229,7 +202,6 @@ function renderBreakdown(predictions) {
                     </div>
 
                 </div>
-
 
                 <div class="score-comparison single-prediction">
 
@@ -259,25 +231,19 @@ function renderBreakdown(predictions) {
 
                 </div>
 
-
                 <div class="divider"></div>
 
-
                 <div class="breakdown-status prediction-status">
-
                     Predicted Winner • ${predictedWinner}
-
                 </div>
 
             `;
-
 
             container.appendChild(card);
 
         }
 
     });
-
 }
 
 function renderPredictionSummary(predictions) {

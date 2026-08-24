@@ -148,6 +148,10 @@ const strength = {
 };
 
 
+// =========================
+// R32 ACTUAL RESULTS
+// =========================
+
 const RESULTS = {
 
     "Germany|Mexico": {
@@ -188,6 +192,62 @@ const RESULTS = {
     "Croatia|Morocco": {
         home: 1,
         away: 2
+    }
+
+};
+
+
+// =========================
+// ACTUAL KNOCKOUT RESULTS
+// =========================
+
+const KNOCKOUT_RESULTS = {
+
+    quarterFinals: {
+
+        "Germany|Argentina": {
+            home: 2,
+            away: 1
+        },
+
+        "France|Spain": {
+            home: 1,
+            away: 2
+        },
+
+        "Brazil|Netherlands": {
+            home: 2,
+            away: 1
+        },
+
+        "Italy|Morocco": {
+            home: 0,
+            away: 1
+        }
+
+    },
+
+    semiFinals: {
+
+        "Germany|Spain": {
+            home: 2,
+            away: 0
+        },
+
+        "Brazil|Morocco": {
+            home: 2,
+            away: 1
+        }
+
+    },
+
+    final: {
+
+        "Germany|Brazil": {
+            home: 1,
+            away: 2
+        }
+
     }
 
 };

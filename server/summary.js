@@ -6,16 +6,11 @@ function calculateSummary(predictions) {
         wrong: 0
     };
 
-    predictions.forEach((prediction) => {
-
-        const key =
-            prediction.home + "|" + prediction.away;
+    predictions.forEach(prediction => {
 
         const actual =
-            RESULTS[key];
+            getActualResult(prediction);
 
-        // Later knockout rounds do not have
-        // actual results in our current dataset.
         if (!actual) {
             return;
         }
@@ -29,7 +24,6 @@ function calculateSummary(predictions) {
         const actualResult =
             resultOf(actual);
 
-
         if (
             prediction.homeScore === actual.home &&
             prediction.awayScore === actual.away
@@ -37,17 +31,13 @@ function calculateSummary(predictions) {
 
             summary.exact++;
 
-        }
-
-        else if (
+        } else if (
             predictedResult === actualResult
         ) {
 
             summary.correct++;
 
-        }
-
-        else {
+        } else {
 
             summary.wrong++;
 
@@ -57,7 +47,6 @@ function calculateSummary(predictions) {
 
     return summary;
 }
-
 
 function renderSummary(summary) {
 
