@@ -38,7 +38,7 @@ function generateRound(predictions) {
     const fixtures = [];
 
     for (let i = 0; i < winners.length; i += 2) {
-        if (!winners[i]) continue;
+        if (!winners[i] || !winners[i + 1]) continue;
 
         fixtures.push({
             home: winners[i],
@@ -59,10 +59,12 @@ function getNextRound(currentRound) {
 function completeTournament(predictions) {
     if (!predictions || predictions.length === 0) return null;
 
-    const finalMatch = predictions[0];
-    const champion = getWinner(finalMatch);
+    const champion = getWinner(predictions[0]);
 
     Tournament.champion = champion;
+    Tournament.nextRoundKey = null;
+    Tournament.nextFixtures = [];
+
     saveTournamentState();
 
     return champion;
@@ -76,36 +78,54 @@ function saveTournamentState() {
 }
 
 function loadTournamentState() {
-    const saved = localStorage.getItem(TOURNAMENT_STORAGE_KEY);
+    const saved =
+        localStorage.getItem(TOURNAMENT_STORAGE_KEY);
 
     if (!saved) return false;
 
     try {
         const state = JSON.parse(saved);
 
-        Tournament.currentRound = state.currentRound || "round32";
-        Tournament.currentFixtures = state.currentFixtures || [];
-        Tournament.nextRoundKey = state.nextRoundKey || null;
-        Tournament.nextFixtures = state.nextFixtures || [];
+        Tournament.currentRound =
+            state.currentRound || "round32";
 
-        Tournament.rounds = state.rounds || {
-            round32: [],
-            quarterFinals: [],
-            semiFinals: [],
-            final: []
-        };
+        Tournament.currentFixtures =
+            state.currentFixtures || [];
 
-        Tournament.champion = state.champion || null;
+        Tournament.nextRoundKey =
+            state.nextRoundKey || null;
+
+        Tournament.nextFixtures =
+            state.nextFixtures || [];
+
+        Tournament.rounds =
+            state.rounds || {
+                round32: [],
+                quarterFinals: [],
+                semiFinals: [],
+                final: []
+            };
+
+        Tournament.champion =
+            state.champion || null;
 
         return true;
+
     } catch (error) {
-        console.error("Failed to load tournament state:", error);
+
+        console.error(
+            "Failed to load tournament state:",
+            error
+        );
+
         return false;
     }
 }
 
 function resetTournamentState() {
-    localStorage.removeItem(TOURNAMENT_STORAGE_KEY);
+    localStorage.removeItem(
+        TOURNAMENT_STORAGE_KEY
+    );
 
     Tournament.currentRound = "round32";
     Tournament.currentFixtures = [];
@@ -123,15 +143,24 @@ function resetTournamentState() {
 }
 
 function renderChampion(champion) {
-    const container = document.getElementById("nextRound");
+    const container =
+        document.getElementById("nextRound");
 
     if (!container) return;
 
     container.innerHTML = `
         <div class="champion-card">
-            <div class="champion-trophy">🏆</div>
-            <div class="champion-label">Your Predicted Champion</div>
-            <div class="champion-name">${champion || "Unknown"}</div>
+            <div class="champion-trophy">
+                🏆
+            </div>
+
+            <div class="champion-label">
+                Your Predicted Champion
+            </div>
+
+            <div class="champion-name">
+                ${champion || "Unknown"}
+            </div>
         </div>
     `;
 }
