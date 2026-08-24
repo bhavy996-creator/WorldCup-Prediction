@@ -1,73 +1,60 @@
 function renderLeaderboard(rows) {
-
     const board = document.getElementById("leaderboard");
-
     if (!board) return;
 
     board.innerHTML = "";
 
     rows.forEach((player, index) => {
-
         const row = document.createElement("div");
         row.className = "leaderboard-row";
 
         let rank;
 
-        if(index === 0){
+        if (index === 0) {
             rank = "🥇";
-        }
-
-        else if(index === 1){
+        } else if (index === 1) {
             rank = "🥈";
-        }
-
-        else if(index === 2){
+        } else if (index === 2) {
             rank = "🥉";
-        }
-
-        else{
+        } else {
             rank = index + 1;
         }
-        
-        let icon;
 
-if (player.type === "user") {
-    icon = "👤";
-}
-else if (player.type === "bot") {
-    icon = "🤖";
-}
-else {
-    icon = "🏆";
-}
         row.innerHTML = `
-            <div class ="leaderboard-left">
-            <span class ="rank">${rank}</span>
-            <span>${player.name}</span>
+            <div class="leaderboard-left">
+                <span class="rank">${rank}</span>
+                <span>${player.name}</span>
             </div>
-            <div class ="leaderboard-score">${player.total}pts</div>
+            <div class="leaderboard-score">${player.total}pts</div>
         `;
 
         board.appendChild(row);
-
     });
-
 }
 
 function saveAndRank(entries) {
-
-    // Save leaderboard
-    localStorage.setItem(KEY, JSON.stringify(entries));
-
-    // Read leaderboard
     const raw = localStorage.getItem(KEY);
+    const previous = JSON.parse(raw || "[]");
 
-    const rows = JSON.parse(raw || "[]");
+    entries.forEach(entry => {
+        const existing = previous.find(
+            player => player.name === entry.name
+        );
 
-    // Sort highest score first
-    rows.sort((a, b) => b.total - a.total);
+        if (existing) {
+            existing.total += entry.total;
+        } else {
+            previous.push({
+                name: entry.name,
+                total: entry.total,
+                type: entry.type
+            });
+        }
+    });
 
-    // Display leaderboard
-    renderLeaderboard(rows);
+    previous.sort((a, b) => b.total - a.total);
 
+    localStorage.setItem(KEY, JSON.stringify(previous));
+
+    renderLeaderboard(previous);
 }

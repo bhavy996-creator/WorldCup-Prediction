@@ -301,6 +301,7 @@ function resetRound() {
     localStorage.removeItem("predictions_quarterFinals");
     localStorage.removeItem("predictions_semiFinals");
     localStorage.removeItem("predictions_final");
+    localStorage.removeItem(KEY);
     document
     .getElementById("lockBanner")
     .classList.add("hidden");
