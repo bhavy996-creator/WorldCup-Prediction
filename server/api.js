@@ -2,35 +2,43 @@ const API_BASE = "http://localhost:3000/api";
 const API_SEASON = 2022;
 
 let LIVE_RESULTS = {};
+let LIVE_FIXTURES = {};
 
 
-/* =========================
-   FETCH ALL WORLD CUP FIXTURES
-   ========================= */
 
 async function fetchWorldCupFixtures() {
+
     try {
+
         const response =
-            await fetch(`${API_BASE}/world-cup/fixtures`);
+            await fetch(
+                `${API_BASE}/world-cup/fixtures`
+            );
 
         if (!response.ok) {
+
             throw new Error(
                 `API request failed: ${response.status}`
             );
+
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         return data.fixtures || [];
 
     } catch (error) {
+
         console.error(
             "Failed to fetch World Cup fixtures:",
             error
         );
 
         return [];
+
     }
+
 }
 
 
@@ -41,30 +49,38 @@ async function fetchWorldCupFixtures() {
 async function fetchKnockoutFixtures(
     season = API_SEASON
 ) {
+
     try {
+
         const response =
             await fetch(
                 `${API_BASE}/world-cup/knockout?season=${season}`
             );
 
         if (!response.ok) {
+
             throw new Error(
                 `Knockout API request failed: ${response.status}`
             );
+
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         return data.fixtures || [];
 
     } catch (error) {
+
         console.error(
             "Failed to fetch knockout fixtures:",
             error
         );
 
         return [];
+
     }
+
 }
 
 
@@ -79,43 +95,67 @@ function normalizeFixture(match) {
     const apiRound =
         (match.round || "").toLowerCase();
 
-    if (apiRound.includes("round of 16")) {
+    if (
+        apiRound.includes("round of 16")
+    ) {
+
         round = "R16";
+
     }
 
     else if (
         apiRound.includes("quarter-finals") ||
         apiRound.includes("quarter finals")
     ) {
+
         round = "QF";
+
     }
 
     else if (
         apiRound.includes("semi-finals") ||
         apiRound.includes("semi finals")
     ) {
+
         round = "SF";
+
     }
 
-    else if (apiRound === "final") {
+    else if (
+        apiRound === "final"
+    ) {
+
         round = "Final";
+
     }
 
     else {
+
         round =
             match.round || "Unknown";
+
     }
 
     return {
+
         id: match.id,
+
         home: match.home,
+
         away: match.away,
+
         date: match.date,
+
         round: round,
+
         status: match.status,
+
         homeScore: match.homeScore,
+
         awayScore: match.awayScore
+
     };
+
 }
 
 
@@ -124,9 +164,11 @@ function normalizeFixture(match) {
    ========================= */
 
 function normalizeFixtures(fixtures) {
+
     return fixtures.map(
         normalizeFixture
     );
+
 }
 
 
@@ -150,22 +192,29 @@ async function getApiFixturesForRound(
         );
 
     const roundMap = {
+
         quarterFinals: "QF",
+
         semiFinals: "SF",
+
         final: "Final"
+
     };
 
     const targetRound =
         roundMap[roundKey];
 
     if (!targetRound) {
+
         return [];
+
     }
 
     return normalized.filter(
         fixture =>
             fixture.round === targetRound
     );
+
 }
 
 
@@ -187,21 +236,32 @@ async function loadRoundFixtures(roundKey) {
                     match.away
             )
             .map(match => ({
+
                 id: match.id,
+
                 home: match.home,
+
                 away: match.away,
+
                 date: match.date,
+
                 round: "R32",
+
                 status: match.status,
+
                 homeScore: match.homeScore,
+
                 awayScore: match.awayScore
+
             }));
+
     }
 
     return await getApiFixturesForRound(
         roundKey,
         API_SEASON
     );
+
 }
 
 
@@ -250,15 +310,10 @@ async function fetchWorldCupResults() {
 
     const results = {};
 
-    fixtures.forEach(match => {
+    const allFixtures = {};
 
-        if (
-            match.status !== "FT" ||
-            match.homeScore === null ||
-            match.awayScore === null
-        ) {
-            return;
-        }
+
+    fixtures.forEach(match => {
 
         const key =
             createMatchKey(
@@ -266,21 +321,61 @@ async function fetchWorldCupResults() {
                 match.away
             );
 
+
+        /* Store every fixture */
+
+        allFixtures[key] = {
+
+            homeTeam: match.home,
+
+            awayTeam: match.away,
+
+            status: match.status,
+
+            home: match.homeScore,
+
+            away: match.awayScore
+
+        };
+
+
+        /* Store only completed matches */
+
+        if (
+            match.status !== "FT" ||
+            match.homeScore === null ||
+            match.awayScore === null
+        ) {
+
+            return;
+
+        }
+
+
         results[key] = {
 
             homeTeam: match.home,
+
             awayTeam: match.away,
 
             home: match.homeScore,
+
             away: match.awayScore
 
         };
 
     });
 
-    LIVE_RESULTS = results;
+
+    LIVE_RESULTS =
+        results;
+
+    LIVE_FIXTURES =
+        allFixtures;
+
 
     return LIVE_RESULTS;
+
 }
 
 
@@ -319,8 +414,13 @@ function getActualResult(prediction) {
         ) {
 
             return {
-                home: liveResult.home,
-                away: liveResult.away
+
+                home:
+                    liveResult.home,
+
+                away:
+                    liveResult.away
+
             };
 
         }
@@ -329,15 +429,18 @@ function getActualResult(prediction) {
         /*
          API has reversed the
          home/away order.
-
-         Swap the scores so they
-         match the prediction.
         */
 
         return {
-            home: liveResult.away,
-            away: liveResult.home
+
+            home:
+                liveResult.away,
+
+            away:
+                liveResult.home
+
         };
+
     }
 
 
@@ -347,41 +450,48 @@ function getActualResult(prediction) {
 
     if (
         typeof RESULTS !==
-            "undefined"
+        "undefined"
     ) {
 
-        if (RESULTS[
+        const directKey =
             prediction.home +
             "|" +
-            prediction.away
-        ]) {
+            prediction.away;
 
-            return RESULTS[
-                prediction.home +
-                "|" +
-                prediction.away
-            ];
-
-        }
-
-        if (RESULTS[
+        const reversedKey =
             prediction.away +
             "|" +
-            prediction.home
-        ]) {
+            prediction.home;
+
+
+        if (
+            RESULTS[directKey]
+        ) {
+
+            return RESULTS[directKey];
+
+        }
+
+
+        if (
+            RESULTS[reversedKey]
+        ) {
 
             const reversed =
-                RESULTS[
-                    prediction.away +
-                    "|" +
-                    prediction.home
-                ];
+                RESULTS[reversedKey];
 
             return {
-                home: reversed.away,
-                away: reversed.home
+
+                home:
+                    reversed.away,
+
+                away:
+                    reversed.home
+
             };
+
         }
+
     }
 
 
@@ -391,7 +501,7 @@ function getActualResult(prediction) {
 
     if (
         typeof KNOCKOUT_RESULTS !==
-            "undefined"
+        "undefined"
     ) {
 
         const roundResults =
@@ -401,33 +511,91 @@ function getActualResult(prediction) {
 
         if (roundResults) {
 
-            const direct =
-                roundResults[
-                    prediction.home +
-                    "|" +
-                    prediction.away
+            const directKey =
+                prediction.home +
+                "|" +
+                prediction.away;
+
+            const reversedKey =
+                prediction.away +
+                "|" +
+                prediction.home;
+
+
+            if (
+                roundResults[directKey]
+            ) {
+
+                return roundResults[
+                    directKey
                 ];
 
-            if (direct) {
-                return direct;
             }
 
-            const reversed =
-                roundResults[
-                    prediction.away +
-                    "|" +
-                    prediction.home
-                ];
 
-            if (reversed) {
+            if (
+                roundResults[reversedKey]
+            ) {
+
+                const reversed =
+                    roundResults[
+                        reversedKey
+                    ];
 
                 return {
-                    home: reversed.away,
-                    away: reversed.home
+
+                    home:
+                        reversed.away,
+
+                    away:
+                        reversed.home
+
                 };
+
             }
+
         }
+
     }
 
+
     return null;
+
+}
+
+
+/* =========================
+   GET FIXTURE STATUS
+   ========================= */
+
+function getFixtureStatus(prediction) {
+
+    const key =
+        createMatchKey(
+            prediction.home,
+            prediction.away
+        );
+
+    const fixture =
+        LIVE_FIXTURES[key];
+
+
+    if (!fixture) {
+
+        return "UNKNOWN";
+
+    }
+
+
+    if (
+        fixture.status === "FT"
+    ) {
+
+        return "FT";
+
+    }
+
+
+    return "UPCOMING";
+
 }
