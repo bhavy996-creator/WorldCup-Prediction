@@ -303,7 +303,7 @@ function revealResultCards(){
     });
 }
 
-function startRound(fixtures, roundKey){
+async function startRound(fixtures, roundKey){
 
     Tournament.currentRound = roundKey;
     Tournament.currentFixtures = fixtures;
@@ -331,5 +331,27 @@ function startRound(fixtures, roundKey){
         top: 0,
         behavior: "smooth"
     });
+}
+
+async function startApiRound(roundKey){
+
+    const fixtures =
+        await loadRoundFixtures(roundKey);
+
+    if(!fixtures.length){
+
+        console.error(
+            `No API fixtures found for ${roundKey}`
+        );
+
+        return false;
+    }
+
+    await startRound(
+        fixtures,
+        roundKey
+    );
+
+    return true;
 }
 

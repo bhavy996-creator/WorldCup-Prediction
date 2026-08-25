@@ -13,11 +13,8 @@ function renderRound(fixtures, title) {
         card.className = "next-match";
 
         card.innerHTML = `
-
             <div class="bracket-header">
-
                 ${title} ${index + 1}
-
             </div>
 
             <div class="next-fixture">
@@ -35,13 +32,9 @@ function renderRound(fixtures, title) {
 
                 </div>
 
-
                 <div class="next-vs">
-
                     VS
-
                 </div>
-
 
                 <div class="next-team away">
 
@@ -57,14 +50,12 @@ function renderRound(fixtures, title) {
                 </div>
 
             </div>
-
         `;
 
         container.appendChild(card);
 
     });
 
-    // START NEXT ROUND ACTION
     const action =
         document.createElement("div");
 
@@ -72,7 +63,6 @@ function renderRound(fixtures, title) {
         "next-round-action";
 
     action.innerHTML = `
-
         <div class="next-round-message">
 
             <strong>
@@ -92,22 +82,37 @@ function renderRound(fixtures, title) {
             Start ${title}
 
         </button>
-
     `;
 
     container.appendChild(action);
 
-     // START ROUND BUTTON
     document
         .getElementById("startNextRoundBtn")
         .addEventListener("click", () => {
 
+            const fixtures =
+                Tournament.nextFixtures;
+
+            const roundKey =
+                Tournament.nextRoundKey;
+
+            if (
+                !fixtures ||
+                fixtures.length === 0 ||
+                !roundKey
+            ) {
+                console.error(
+                    "Next round fixtures are unavailable."
+                );
+
+                return;
+            }
+
             startRound(
-                Tournament.nextFixtures,
-                Tournament.nextRoundKey
+                fixtures,
+                roundKey
             );
 
-            // Return to the prediction area
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
